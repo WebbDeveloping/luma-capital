@@ -1,0 +1,190 @@
+/* app/globals.css */
+
+/* Load Tailwind */
+@import "tailwindcss";
+/* Make Tailwind's `dark:` variant follow data-theme="dark" */
+/* stylelint-disable-next-line */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ===========================
+   BRAND FONTS (local)
+   =========================== */
+
+@font-face {
+  font-family: "Tiempos Fine";
+  src: url("/fonts/Tiempos-Fine/tiempos-fine-regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Fine";
+  src: url("/fonts/Tiempos-Fine/tiempos-fine-semibold.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===========================
+   TAILWIND THEME TOKENS
+   =========================== */
+
+@theme {
+  --color-tl-black: #000000;
+  --color-tl-brown: #624315;
+  --color-tl-gold: #ffe898;
+
+  --color-brand-bg: var(--color-tl-black);
+  --color-brand-primary: var(--color-tl-brown);
+  --color-brand-accent: var(--color-tl-gold);
+
+  --font-tl-display: "Tiempos Fine", ui-serif, Georgia, serif;
+  --font-tl-sans: "Montserrat", system-ui, -apple-system, sans-serif;
+
+  --text-tl-header: 1rem;
+  --text-tl-header--line-height: 1.35;
+
+  --text-tl-sub: 0.75rem;
+  --text-tl-sub--line-height: 1.4;
+
+  --text-tl-body: 0.625rem;
+  --text-tl-body--line-height: 1.5;
+}
+
+/* ===========================
+   LIGHT / DARK THEME TOKENS
+   =========================== */
+
+/* Default: light theme */
+:root {
+  color-scheme: light;
+  --background: #f9f5ee; /* light parchment */
+  --foreground: #111111;
+  --surface: #ffffff;
+  --surface-muted: #f1e6d6;
+  --border-subtle: rgba(0, 0, 0, 0.06);
+}
+
+/* Explicit light theme (data-theme="light") */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --background: #f9f5ee;
+  --foreground: #111111;
+  --surface: #ffffff;
+  --surface-muted: #f1e6d6;
+  --border-subtle: rgba(0, 0, 0, 0.06);
+}
+
+/* Dark theme (data-theme="dark") */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: var(--color-tl-black);
+  --foreground: #ffffff;
+  --surface: #050505;
+  --surface-muted: #17130d;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+}
+
+/* ===========================
+   GLOBAL ELEMENTS
+   =========================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-tl-sans);
+}
+
+/* Optional helpers so you can use these in Tailwind via arbitrary values */
+.bg-app {
+  background-color: var(--background);
+}
+
+.text-app {
+  color: var(--foreground);
+}
+
+/* ===========================
+   LIGHT / DARK THEME TOKENS
+   =========================== */
+
+/* Default: light theme */
+html {
+  color-scheme: light;
+  --background: #f9f5ee; /* light parchment */
+  --foreground: #111111;
+  --surface: #ffffff;
+  --surface-muted: #f1e6d6;
+  --border-subtle: rgba(0, 0, 0, 0.06);
+}
+
+/* Dark theme when <html class="dark"> */
+html.dark {
+  color-scheme: dark;
+  --background: var(--color-tl-black);
+  --foreground: #ffffff;
+  --surface: #050505;
+  --surface-muted: #17130d;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-tl-sans);
+}
+
+/* Optional helpers */
+.bg-app {
+  background-color: var(--background);
+}
+
+.text-app {
+  color: var(--foreground);
+}
