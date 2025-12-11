@@ -30,7 +30,7 @@ const features = [
 
 export default function VisionComponent() {
   return (
-    <section className="bg-[#e8dbc7] py-24 sm:py-32 dark:bg-[#080808]">
+    <section className="bg-[#e8dbc7] py-24 sm:py-32 dark:bg-[#1F1A14]">
       <div className="mx-auto max-w-7xl px-6 lg:px-8 font-serif">
         {/* HEADER */}
         <div className="mx-auto max-w-2xl lg:text-center">

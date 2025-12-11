@@ -2,7 +2,7 @@
 
 export default function HeroSection() {
   return (
-    <div className="bg-[#f9f5ee] text-[#1b1308] dark:bg-tl-black dark:text-white font-serif">
+    <div className="bg-[#f9f5ee] text-[#1b1308] dark:bg-[#1F1A14] dark:text-white font-serif">
       <div className="relative isolate">
         {/* Background pattern */}
         <svg

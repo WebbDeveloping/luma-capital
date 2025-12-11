@@ -1,6 +1,6 @@
 export default function ValidationSection() {
   return (
-    <section className="relative z-20 bg-tl-brown dark:bg-[#080808] py-14 sm:py-20">
+    <section className="relative z-20 bg-tl-brown dark:bg-[#000] py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* HEADER — now using font-serif */}
         <h2 className="text-center font-serif text-tl-sub font-semibold text-tl-gold">
