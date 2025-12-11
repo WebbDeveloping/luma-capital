@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   Dialog,
   DialogPanel,
@@ -62,18 +63,15 @@ const callsToAction = [
 
 function TerraLumaLogo() {
   return (
-    <div className="flex items-center gap-2">
-      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-tl-brown text-tl-gold text-sm font-semibold">
-        TL
-      </div>
-      <div className="flex flex-col">
-        <span className="text-xs font-semibold tracking-[0.22em] uppercase text-tl-brown dark:text-tl-gold">
-          TerraLuma
-        </span>
-        <span className="text-[11px] text-[#5a4a36] dark:text-gray-400">
-          Capital
-        </span>
-      </div>
+    <div className="flex items-center">
+      <Image
+        src="/images/logo-terraluma-capital.png" // make sure this file lives in /public/images/logo.png
+        alt="TerraLuma Capital"
+        width={140}
+        height={32}
+        priority
+        className="h-8 w-auto"
+      />
     </div>
   );
 }
@@ -82,7 +80,7 @@ export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="relative isolate z-10 bg-[#f9f5ee] text-[#21140a] dark:bg-tl-black dark:text-white">
+    <header className="relative isolate z-10 bg-[#15100b] text-white dark:bg-tl-black dark:text-white">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
@@ -100,7 +98,7 @@ export default function Example() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-[#3f3122] dark:text-gray-300"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
           >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon aria-hidden="true" className="size-6" />
@@ -110,11 +108,11 @@ export default function Example() {
         {/* DESKTOP NAV */}
         <PopoverGroup className="hidden lg:flex lg:gap-x-10">
           <Popover>
-            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-[#21140a] hover:text-tl-brown dark:text-white dark:hover:text-tl-gold">
+            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-white/80 hover:text-tl-gold">
               Solutions
               <ChevronDownIcon
                 aria-hidden="true"
-                className="size-5 flex-none text-[#9a8566] dark:text-gray-400"
+                className="size-5 flex-none text-tl-gold"
               />
             </PopoverButton>
 
@@ -134,7 +132,7 @@ export default function Example() {
                       key={item.name}
                       className="group relative rounded-lg p-6 text-sm/6 hover:bg-[#f1e3d1] dark:hover:bg-white/5"
                     >
-                      <div className="flex size-11 items-center justify-center rounded-lg bg-[#f4e7d6] group-hover:bg-[#fffaf2] dark:bg-[#22201a] dark:group-hover:bg-[#2c261c]">
+                      <div className="flex size-11 items-center justify-center rounded-lg bg-[#f4e7d6] group-hover:bg-[#fffaf2] dark:bg-[#22201a] dark:group-hover:bg[#2c261c]">
                         <item.icon
                           aria-hidden="true"
                           className="size-6 text-tl-brown group-hover:text-tl-brown dark:text-tl-gold dark:group-hover:text-white"
@@ -179,25 +177,25 @@ export default function Example() {
 
           <a
             href="#who-we-serve"
-            className="text-sm/6 font-semibold text-[#21140a] hover:text-tl-brown dark:text-white dark:hover:text-tl-gold"
+            className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
           >
             Who we serve
           </a>
           <a
             href="#process"
-            className="text-sm/6 font-semibold text-[#21140a] hover:text-tl-brown dark:text-white dark:hover:text-tl-gold"
+            className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
           >
             Process
           </a>
           <a
             href="#about"
-            className="text-sm/6 font-semibold text-[#21140a] hover:text-tl-brown dark:text-white dark:hover:text-tl-gold"
+            className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
           >
             About
           </a>
           <a
             href="#insights"
-            className="text-sm/6 font-semibold text-[#21140a] hover:text-tl-brown dark:text-white dark:hover:text-tl-gold"
+            className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
           >
             Insights
           </a>
@@ -207,7 +205,7 @@ export default function Example() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <a
             href="#contact"
-            className="text-sm/6 font-semibold text-[#21140a] hover:text-tl-brown dark:text-tl-gold dark:hover:text-white"
+            className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
           >
             Contact <span aria-hidden="true">&rarr;</span>
           </a>
@@ -221,7 +219,7 @@ export default function Example() {
         className="lg:hidden"
       >
         <div className="fixed inset-0 z-50" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#f9f5ee] p-6 sm:max-w-sm sm:ring-1 sm:ring-black/10 dark:bg-tl-black dark:sm:ring-white/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#15100b] p-6 sm:max-w-sm sm:ring-1 sm:ring-white/10 dark:bg-tl-black dark:sm:ring-white/10">
           <div className="flex items-center justify-between">
             <a href="#top" className="-m-1.5 p-1.5">
               <span className="sr-only">TerraLuma Capital</span>
@@ -230,7 +228,7 @@ export default function Example() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-[#3f3122] dark:text-gray-300"
+              className="-m-2.5 rounded-md p-2.5 text-white"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="size-6" />
@@ -238,10 +236,10 @@ export default function Example() {
           </div>
 
           <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-black/10 dark:divide-white/10">
+            <div className="-my-6 divide-y divide-white/10">
               <div className="space-y-2 py-6">
                 <Disclosure as="div" className="-mx-3">
-                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-[#21140a] hover:bg-[#f1e3d1] dark:text-white dark:hover:bg-white/5">
+                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
                     Solutions
                     <ChevronDownIcon
                       aria-hidden="true"
@@ -254,7 +252,7 @@ export default function Example() {
                         key={item.name}
                         as="a"
                         href={item.href}
-                        className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-[#21140a] hover:bg-[#f1e3d1] dark:text-white dark:hover:bg-white/5"
+                        className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white hover:bg-white/5"
                       >
                         {item.name}
                       </DisclosureButton>
@@ -264,25 +262,25 @@ export default function Example() {
 
                 <a
                   href="#who-we-serve"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-[#21140a] hover:bg-[#f1e3d1] dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                 >
                   Who we serve
                 </a>
                 <a
                   href="#process"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-[#21140a] hover:bg-[#f1e3d1] dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg:white/5"
                 >
                   Process
                 </a>
                 <a
                   href="#about"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-[#21140a] hover:bg-[#f1e3d1] dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                 >
                   About
                 </a>
                 <a
                   href="#insights"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-[#21140a] hover:bg-[#f1e3d1] dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text:white hover:bg-white/5"
                 >
                   Insights
                 </a>
@@ -291,7 +289,7 @@ export default function Example() {
               <div className="py-6">
                 <a
                   href="#contact"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-[#21140a] hover:bg-[#f1e3d1] dark:text-tl-gold dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-tl-gold hover:bg-white/5"
                 >
                   Contact
                 </a>

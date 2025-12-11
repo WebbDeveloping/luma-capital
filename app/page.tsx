@@ -8,10 +8,21 @@ import Vision from "@/components/home/Vision";
 import MarketPotentialSection from "@/components/home/MarketPotential";
 import CTASection from "@/components/home/CtaSection";
 
-export const metadata: Metadata = {
-  title: "TerraLuma Capital | Rural Business & Land Investment",
+// app/page.tsx
+export const metadata = {
+  title: "Investing in Rural Businesses & Land",
   description:
-    "Patient capital for rural businesses and homestead land development across Tennessee, North Georgia, and North Alabama.",
+    "TerraLuma Capital supports rural business transitions, land stewardship, and sustainable growth across the Southeast. We help owners, operators, and communities thrive.",
+  openGraph: {
+    images: [
+      {
+        url: "/images/stock/1.png",
+        width: 1200,
+        height: 630,
+        alt: "Rural business and land investment",
+      },
+    ],
+  },
 };
 
 export default function HomePage() {

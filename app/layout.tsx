@@ -5,9 +5,27 @@ import ThemeToggle from "@/components/ThemeToggle";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/footer";
 
-export const metadata: Metadata = {
-  title: "TerraLuma Capital",
-  description: "Rural business & land investment",
+// app/layout.tsx
+// app/layout.tsx
+export const metadata = {
+  title: {
+    default: "TerraLuma Capital",
+    template: "%s — TerraLuma Capital",
+  },
+  description:
+    "TerraLuma Capital partners with rural business owners and land stewards to support generational transitions, sustainable operations, and long-term community value.",
+  openGraph: {
+    type: "website",
+    siteName: "TerraLuma Capital",
+    images: [
+      {
+        url: "/images/stock/1.png", // stock image for now
+        width: 1200,
+        height: 630,
+        alt: "TerraLuma Capital",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
