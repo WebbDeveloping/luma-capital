@@ -155,24 +155,30 @@ export default function OurModal() {
 function VideoBlock() {
   return (
     <div className="lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-      {/* Mobile video – full width, sm and below */}
+      {/* Mobile iframe – full width, sm and below */}
       <div className="md:hidden mt-8">
-        <video
-          className="w-full rounded-xl bg-tl-black shadow-xl ring-1 ring-tl-brown/25 dark:bg-[#111111] dark:ring-tl-gold/25"
-          src="/videos/video-1.mov"
-          controls
-          playsInline
-        />
+        <div className="aspect-video w-full rounded-xl overflow-hidden bg-tl-black shadow-xl ring-1 ring-tl-brown/25 dark:bg-[#111111] dark:ring-tl-gold/25">
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/Um63OQz3bjo"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
 
-      {/* Desktop / larger video – hidden until md+ */}
+      {/* Desktop iframe – hidden until md+ */}
       <div className="hidden md:block -mt-12 -ml-12 p-12">
-        <video
-          className="w-3xl max-w-none rounded-xl bg-tl-black shadow-xl ring-1 ring-tl-brown/25 sm:w-228 dark:bg-[#111111] dark:ring-tl-gold/25"
-          src="/videos/video-1.mov"
-          controls
-          playsInline
-        />
+        <div className="aspect-video w-3xl max-w-none rounded-xl overflow-hidden bg-tl-black shadow-xl ring-1 ring-tl-brown/25 sm:w-228 dark:bg-[#111111] dark:ring-tl-gold/25">
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/Um63OQz3bjo"
+            title="YouTube video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
     </div>
   );

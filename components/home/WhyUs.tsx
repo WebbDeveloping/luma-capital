@@ -80,12 +80,15 @@ export default function WhyUs() {
 
               {/* Mobile video */}
               <div className="md:hidden mt-10">
-                <video
-                  className="w-full rounded-xl bg-tl-black shadow-xl ring-1 ring-tl-brown/25 dark:bg-[#111111] dark:ring-tl-gold/25"
-                  src="/videos/video-1.mov"
-                  controls
-                  playsInline
-                />
+                <div className="aspect-video w-full rounded-xl overflow-hidden bg-tl-black shadow-xl ring-1 ring-tl-brown/25 dark:bg-[#111111] dark:ring-tl-gold/25">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/Um63OQz3bjo"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
               </div>
             </div>
           </div>
@@ -93,12 +96,15 @@ export default function WhyUs() {
           {/* Sticky video block (desktop) */}
           <div className="hidden md:flex items-start justify-end lg:order-first">
             <div className="w-full lg:w-auto lg:sticky lg:top-24">
-              <video
-                className="w-3xl max-w-none rounded-xl bg-tl-black shadow-xl ring-1 ring-tl-brown/25 sm:w-228 dark:bg-[#111111] dark:ring-tl-gold/25"
-                src="/videos/video-1.mov"
-                controls
-                playsInline
-              />
+              <div className="aspect-video w-3xl max-w-none rounded-xl overflow-hidden shadow-xl ring-1 ring-tl-brown/25 dark:ring-tl-gold/25">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/Um63OQz3bjo"
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
