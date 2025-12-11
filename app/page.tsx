@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-[#f7f3ea] font-sans text-tl-black">
+    <main className="min-h-screen bg-[#f7f3ea] text-tl-black">
       <Hero />
       <LogoCloud />
       <WhyUs />

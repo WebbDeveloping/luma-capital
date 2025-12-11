@@ -1,19 +1,18 @@
 export default function ValidationSection() {
   return (
-    <section className="relative z-20 bg-tl-brown dark:bg-[#080808] py-20 sm:py-28">
+    <section className="relative z-20 bg-tl-brown dark:bg-[#080808] py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        {/* HEADER */}
-        <h2 className="text-center font-[var(--font-tl-sans)] text-tl-sub font-semibold text-tl-gold">
+        {/* HEADER — now using font-serif */}
+        <h2 className="text-center font-serif text-tl-sub font-semibold text-tl-gold">
           Trusted by organizations aligned with our mission
         </h2>
 
         {/* LOGO GRID */}
         <div
-          className="mx-auto mt-12 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10
+          className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10
                      sm:max-w-xl sm:grid-cols-6 sm:gap-x-10
                      lg:mx-0 lg:max-w-none lg:grid-cols-5"
         >
-          {/* temp white logos (swap later) */}
           <img
             alt="Transistor"
             src="https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-white.svg"

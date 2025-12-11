@@ -71,8 +71,13 @@
   --color-brand-primary: var(--color-tl-brown);
   --color-brand-accent: var(--color-tl-gold);
 
-  --font-tl-display: "Tiempos Fine", ui-serif, Georgia, serif;
-  --font-tl-sans: "Montserrat", system-ui, -apple-system, sans-serif;
+  /* 🔑 Map Tailwind font tokens */
+  --font-sans: "Montserrat", system-ui, -apple-system, sans-serif;
+  --font-serif: "Tiempos Fine", ui-serif, Georgia, serif;
+
+  /* Optional aliases */
+  --font-tl-display: var(--font-serif);
+  --font-tl-sans: var(--font-sans);
 
   --text-tl-header: 1rem;
   --text-tl-header--line-height: 1.35;
@@ -122,6 +127,23 @@
    GLOBAL ELEMENTS
    =========================== */
 
+@layer base {
+  /* Body text = Montserrat */
+  body {
+    @apply font-sans;
+  }
+
+  /* Headings = Tiempos Fine */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -137,7 +159,7 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-tl-sans);
+  font-family: var(--font-sans);
 }
 
 /* Optional helpers so you can use these in Tailwind via arbitrary values */

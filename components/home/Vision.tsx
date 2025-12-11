@@ -28,21 +28,21 @@ const features = [
   },
 ];
 
-export default function Example() {
+export default function VisionComponent() {
   return (
     <section className="bg-[#e8dbc7] py-24 sm:py-32 dark:bg-[#080808]">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 font-serif">
         {/* HEADER */}
         <div className="mx-auto max-w-2xl lg:text-center">
-          <h2 className="text-base/7 font-semibold text-tl-brown dark:text-tl-gold">
+          <h2 className="text-base/7 font-semibold text-tl-brown dark:text-tl-gold font-serif">
             Investment Focus
           </h2>
 
-          <p className="mt-2 text-4xl font-semibold tracking-tight text-[#21140a] sm:text-5xl lg:text-balance dark:text-white">
+          <p className="mt-2 text-4xl font-semibold tracking-tight text-[#21140a] sm:text-5xl lg:text-balance dark:text-white font-serif">
             Supporting rural operators and long-term land stewards
           </p>
 
-          <p className="mt-6 text-lg/8 text-[#5a4a36] dark:text-gray-300">
+          <p className="mt-6 text-lg/8 text-[#5a4a36] dark:text-gray-300 font-sans">
             TerraLuma invests in high-integrity, service-driven rural businesses
             where patient capital and operational support create resilience,
             growth, and continuity.
@@ -54,7 +54,8 @@ export default function Example() {
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
             {features.map((feature) => (
               <div key={feature.name} className="flex flex-col">
-                <dt className="flex items-center gap-x-3 text-base/7 font-semibold text-[#21140a] dark:text-white">
+                {/* Feature Name */}
+                <dt className="flex items-center gap-x-3 text-base/7 font-semibold text-[#21140a] dark:text-white font-serif">
                   <feature.icon
                     aria-hidden="true"
                     className="size-5 flex-none text-tl-brown dark:text-tl-gold"
@@ -62,10 +63,12 @@ export default function Example() {
                   {feature.name}
                 </dt>
 
-                <dd className="mt-4 flex flex-auto flex-col text-base/7 text-[#5a4a36] dark:text-gray-400">
-                  <p className="flex-auto">{feature.description}</p>
+                {/* Description */}
+                <dd className="mt-4 flex flex-auto flex-col text-base/7 text-[#5a4a36] dark:text-gray-400 font-serif">
+                  <p className="flex-auto font-sans">{feature.description}</p>
 
-                  <p className="mt-6">
+                  {/* CTA — stays sans */}
+                  <p className="mt-6 font-sans">
                     <a
                       href={feature.href}
                       className="text-sm/6 font-semibold text-tl-brown hover:text-tl-brown/80 dark:text-tl-gold dark:hover:text-tl-gold/80"

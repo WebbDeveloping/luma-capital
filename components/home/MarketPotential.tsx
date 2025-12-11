@@ -32,13 +32,13 @@ export default function MarketPotentialSection() {
 
         {/* Copy */}
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl">
-          <h2 className="text-base/8 font-semibold text-tl-gold">
+          <h2 className="text-base/8 font-semibold text-tl-gold font-serif">
             Market potential
           </h2>
-          <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-white sm:text-5xl">
+          <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty font-serif text-white sm:text-5xl">
             Positioned at the center of a structural rural shift
           </p>
-          <p className="mt-6 text-lg/8 text-white/70">
+          <p className="mt-6 text-lg/8 text-white/70 font-sans">
             Demographic change, ownership transitions, and renewed interest in
             rural living are creating a durable pipeline of businesses and land
             assets in need of patient, aligned capital.
@@ -50,7 +50,7 @@ export default function MarketPotentialSection() {
           {stats.map((stat) => (
             <div
               key={stat.id}
-              className="flex flex-col gap-y-3 border-l border-white/15 pl-6"
+              className="flex flex-col gap-y-3 border-l border-white/15 pl-6 font-sans"
             >
               <dt className="text-sm/6 text-white/70">{stat.name}</dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-tl-gold">

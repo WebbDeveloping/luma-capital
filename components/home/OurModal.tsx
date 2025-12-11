@@ -44,13 +44,13 @@ export default function OurModal() {
         <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
           <div className="lg:pr-4">
             <div className="lg:max-w-lg">
-              <p className="text-base/7 font-semibold text-tl-brown dark:text-tl-gold">
+              <p className="text-base/7 font-semibold text-tl-brown dark:text-tl-gold font-serif">
                 Our model
               </p>
-              <h1 className="mt-2 text-4xl font-semibold tracking-tight text-[#21140a] sm:text-5xl dark:text-white">
+              <h1 className="mt-2 text-4xl font-semibold tracking-tight text-[#21140a] sm:text-5xl dark:text-white font-serif">
                 A capital stack designed for rural reality
               </h1>
-              <p className="mt-6 text-xl/8 text-[#4f4537] dark:text-gray-300">
+              <p className="mt-6 text-xl/8 text-[#4f4537] dark:text-gray-300 font-serif">
                 TerraLuma Capital sits alongside community banks and local
                 operators to solve succession, fund growth, and keep ownership
                 rooted in the communities that built these businesses and
@@ -64,7 +64,7 @@ export default function OurModal() {
         <VideoBlock />
 
         {/* Body copy + bullets */}
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
+        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 font-sans">
           <div className="lg:pr-4">
             <div className="max-w-xl text-base/7 text-[#5a4a36] lg:max-w-lg dark:text-gray-300">
               <p>
@@ -133,7 +133,7 @@ export default function OurModal() {
                 believe in but can’t fully finance on their own.
               </p>
 
-              <h2 className="mt-16 text-2xl font-bold tracking-tight text-[#21140a] dark:text-white">
+              <h2 className="mt-16 text-2xl font-bold tracking-tight text-[#21140a] dark:text-white font-serif">
                 Where TerraLuma fits in a transaction
               </h2>
 

@@ -31,15 +31,20 @@ export default function WhyUs() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           {/* Copy */}
-          <div className="lg:ml-auto lg:pt-4 lg:pl-4">
+          <div className="lg:ml-auto lg:pt-4 lg:pl-4 font-serif">
             <div className="lg:max-w-lg">
-              <p className="text-base/7 font-semibold text-tl-brown dark:text-tl-gold">
+              {/* Eyebrow */}
+              <p className="text-base/7 font-semibold text-tl-brown dark:text-tl-gold font-serif">
                 The gap we’re built to fill
               </p>
-              <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-[#21140a] sm:text-5xl dark:text-white">
+
+              {/* Heading */}
+              <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-[#21140a] sm:text-5xl dark:text-white font-serif">
                 When rural businesses and land have nowhere stable to go
               </h2>
-              <p className="mt-6 text-lg/8 text-[#4f4537] dark:text-gray-300">
+
+              {/* Body */}
+              <p className="mt-6 text-lg/8 text-[#4f4537] dark:text-gray-300 font-serif">
                 TerraLuma Capital steps in when a good rural business or
                 homestead project needs more than a traditional loan, but less
                 than a sale to an outside buyer. We help owners exit well,
@@ -47,22 +52,24 @@ export default function WhyUs() {
                 table.
               </p>
 
-              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-[#5a4a36] lg:max-w-none dark:text-gray-300">
+              {/* Features */}
+              <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-[#5a4a36] lg:max-w-none dark:text-gray-300 font-serif">
                 {features.map((feature) => (
                   <div key={feature.name} className="relative pl-9">
-                    <dt className="inline font-semibold text-[#21140a] dark:text-white">
+                    <dt className="inline font-semibold text-[#21140a] dark:text-white font-serif">
                       <feature.icon
                         aria-hidden="true"
                         className="absolute top-1 left-1 size-5 text-tl-brown dark:text-tl-gold"
                       />
                       {feature.name}
                     </dt>{" "}
-                    <dd className="inline">{feature.description}</dd>
+                    <dd className="inline font-serif">{feature.description}</dd>
                   </div>
                 ))}
               </dl>
 
-              <div className="mt-10">
+              {/* CTA — stays sans for UI clarity */}
+              <div className="mt-10 font-sans">
                 <a
                   href="/our-model"
                   className="text-base/7 font-semibold text-tl-brown hover:text-tl-brown/80 dark:text-tl-gold dark:hover:text-tl-gold/80"
@@ -71,7 +78,7 @@ export default function WhyUs() {
                 </a>
               </div>
 
-              {/* Mobile video (sm only, full width) */}
+              {/* Mobile video */}
               <div className="md:hidden mt-10">
                 <video
                   className="w-full rounded-xl bg-tl-black shadow-xl ring-1 ring-tl-brown/25 dark:bg-[#111111] dark:ring-tl-gold/25"
@@ -83,7 +90,7 @@ export default function WhyUs() {
             </div>
           </div>
 
-          {/* Sticky video block – md and up */}
+          {/* Sticky video block (desktop) */}
           <div className="hidden md:flex items-start justify-end lg:order-first">
             <div className="w-full lg:w-auto lg:sticky lg:top-24">
               <video
@@ -91,7 +98,6 @@ export default function WhyUs() {
                 src="/videos/video-1.mov"
                 controls
                 playsInline
-                // poster="/images/stock/bg/terraluma-poster-1.jpg"
               />
             </div>
           </div>

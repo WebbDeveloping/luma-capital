@@ -1,9 +1,10 @@
 "use client";
 
-export default function Example() {
+export default function HeroSection() {
   return (
-    <div className="bg-[#f9f5ee] text-[#1b1308] dark:bg-tl-black dark:text-white">
+    <div className="bg-[#f9f5ee] text-[#1b1308] dark:bg-tl-black dark:text-white font-serif">
       <div className="relative isolate">
+        {/* Background pattern */}
         <svg
           aria-hidden="true"
           className="absolute inset-x-0 top-0 -z-10 h-256 w-full mask-[radial-gradient(32rem_32rem_at_center,white,transparent)] stroke-[#e2d4c1] dark:stroke-white/10"
@@ -20,6 +21,7 @@ export default function Example() {
               <path d="M.5 200V.5H200" fill="none" />
             </pattern>
           </defs>
+
           <svg
             x="50%"
             y={-1}
@@ -30,6 +32,7 @@ export default function Example() {
               strokeWidth={0}
             />
           </svg>
+
           <rect
             fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"
             width="100%"
@@ -38,6 +41,7 @@ export default function Example() {
           />
         </svg>
 
+        {/* Gold glow */}
         <div
           aria-hidden="true"
           className="absolute top-0 right-0 left-1/2 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
@@ -51,26 +55,33 @@ export default function Example() {
           />
         </div>
 
+        {/* CONTENT */}
         <div className="overflow-hidden">
           <div className="mx-auto max-w-7xl px-6 pt-36 pb-32 sm:pt-60 lg:px-8 lg:pt-32">
             <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
               <div className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
-                <h1 className="text-5xl font-semibold tracking-tight text-pretty text-[#20140a] sm:text-7xl dark:text-white">
+                {/* HEADLINE — serif */}
+                <h1 className="text-5xl font-semibold tracking-tight text-pretty text-[#20140a] sm:text-7xl dark:text-white font-serif">
                   Investing in the Future of Rural America
                 </h1>
-                <p className="mt-8 text-lg font-medium text-pretty text-[#5a4a36] sm:max-w-md sm:text-xl/8 lg:max-w-none dark:text-gray-300">
+
+                {/* PARAGRAPH — serif */}
+                <p className="mt-8 text-lg text-pretty text-[#5a4a36] sm:max-w-md sm:text-xl/8 lg:max-w-none dark:text-gray-300 font-serif">
                   We help rural businesses transition to the next generation and
                   support thoughtful land development that strengthens local
                   communities. Our approach blends responsible capital, local
                   partnerships, and long-term stewardship.
                 </p>
-                <div className="mt-10 flex items-center gap-x-6">
+
+                {/* BUTTONS — keep sans for clarity */}
+                <div className="mt-10 flex items-center gap-x-6 font-sans">
                   <a
                     href="#"
                     className="rounded-md bg-tl-brown px-3.5 py-2.5 text-sm font-semibold text-tl-gold shadow-xs hover:bg-[#4f3511] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tl-brown dark:bg-tl-gold dark:text-tl-black dark:hover:bg-[#ffe080] dark:focus-visible:outline-tl-gold"
                   >
                     Who We Support
                   </a>
+
                   <a
                     href="#"
                     className="text-sm/6 font-semibold text-[#3c3227] hover:text-tl-brown dark:text-tl-gold dark:hover:text-white"
@@ -80,6 +91,7 @@ export default function Example() {
                 </div>
               </div>
 
+              {/* IMAGE GRID — no font changes needed */}
               <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
                 <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-0 xl:pt-80">
                   <div className="relative">
@@ -130,6 +142,7 @@ export default function Example() {
                   </div>
                 </div>
               </div>
+              {/* END IMG GRID */}
             </div>
           </div>
         </div>
