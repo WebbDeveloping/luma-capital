@@ -154,13 +154,26 @@ export default function OurModal() {
 
 function VideoBlock() {
   return (
-    <div className="-mt-12 -ml-12 p-12 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-      <video
-        className="w-3xl max-w-none rounded-xl bg-tl-black shadow-xl ring-1 ring-tl-brown/25 sm:w-228 dark:bg-[#111111] dark:ring-tl-gold/25"
-        src="/videos/video-1.mov"
-        controls
-        playsInline
-      />
+    <div className="lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
+      {/* Mobile video – full width, sm and below */}
+      <div className="md:hidden mt-8">
+        <video
+          className="w-full rounded-xl bg-tl-black shadow-xl ring-1 ring-tl-brown/25 dark:bg-[#111111] dark:ring-tl-gold/25"
+          src="/videos/video-1.mov"
+          controls
+          playsInline
+        />
+      </div>
+
+      {/* Desktop / larger video – hidden until md+ */}
+      <div className="hidden md:block -mt-12 -ml-12 p-12">
+        <video
+          className="w-3xl max-w-none rounded-xl bg-tl-black shadow-xl ring-1 ring-tl-brown/25 sm:w-228 dark:bg-[#111111] dark:ring-tl-gold/25"
+          src="/videos/video-1.mov"
+          controls
+          playsInline
+        />
+      </div>
     </div>
   );
 }

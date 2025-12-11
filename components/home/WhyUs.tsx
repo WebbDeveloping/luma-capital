@@ -25,7 +25,7 @@ const features = [
   },
 ];
 
-export default function Example() {
+export default function WhyUs() {
   return (
     <div className="overflow-hidden bg-[#f3eadb] py-24 sm:py-32 dark:bg-tl-black">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -70,11 +70,21 @@ export default function Example() {
                   Learn how TerraLuma is structured to help &rarr;
                 </a>
               </div>
+
+              {/* Mobile video (sm only, full width) */}
+              <div className="md:hidden mt-10">
+                <video
+                  className="w-full rounded-xl bg-tl-black shadow-xl ring-1 ring-tl-brown/25 dark:bg-[#111111] dark:ring-tl-gold/25"
+                  src="/videos/video-1.mov"
+                  controls
+                  playsInline
+                />
+              </div>
             </div>
           </div>
 
-          {/* Sticky video block */}
-          <div className="flex items-start justify-end lg:order-first">
+          {/* Sticky video block – md and up */}
+          <div className="hidden md:flex items-start justify-end lg:order-first">
             <div className="w-full lg:w-auto lg:sticky lg:top-24">
               <video
                 className="w-3xl max-w-none rounded-xl bg-tl-black shadow-xl ring-1 ring-tl-brown/25 sm:w-228 dark:bg-[#111111] dark:ring-tl-gold/25"
