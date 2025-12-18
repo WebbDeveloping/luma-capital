@@ -4,6 +4,7 @@ import "./globals.css";
 import ThemeToggle from "@/components/ThemeToggle";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/footer";
+import DevModal from "@/components/modal/DevModal";
 
 // app/layout.tsx
 // app/layout.tsx
@@ -39,7 +40,8 @@ export default function RootLayout({
         <Navigation />
         {children}
         <Footer />
-        <ThemeToggle />
+        <DevModal />
+        {/* <ThemeToggle /> */}
       </body>
     </html>
   );

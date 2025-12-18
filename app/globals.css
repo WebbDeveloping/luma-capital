@@ -113,7 +113,7 @@
   --border-subtle: rgba(0, 0, 0, 0.06);
 }
 
-/* Dark theme (data-theme="dark") */
+/* Dark theme is no longer used*/
 :root[data-theme="dark"] {
   color-scheme: dark;
   --background: var(--color-tl-black);

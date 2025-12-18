@@ -7,6 +7,7 @@ import OurModal from "@/components/home/OurModal";
 import Vision from "@/components/home/Vision";
 import MarketPotentialSection from "@/components/home/MarketPotential";
 import CTASection from "@/components/home/CtaSection";
+import FAQ from "@/components/home/FAQ";
 
 // app/page.tsx
 export const metadata = {
@@ -34,6 +35,7 @@ export default function HomePage() {
       <OurModal />
       <Vision />
       <MarketPotentialSection />
+      <FAQ />
       <CTASection />
     </main>
   );

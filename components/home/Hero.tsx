@@ -1,40 +1,39 @@
 "use client";
 
-export default function HeroSection() {
+import { useState } from "react";
+
+export default function Example() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
-    <div className="bg-[#f9f5ee] text-[#1b1308] dark:bg-[#1F1A14] dark:text-white font-serif">
-      <div className="relative isolate">
+    <div className="bg-[#f9f5ee] text-[#1b1308] font-serif">
+      {/* HERO */}
+      <div className="relative isolate pt-14">
         {/* Background pattern */}
         <svg
           aria-hidden="true"
-          className="absolute inset-x-0 top-0 -z-10 h-256 w-full mask-[radial-gradient(32rem_32rem_at_center,white,transparent)] stroke-[#e2d4c1] dark:stroke-white/10"
+          className="absolute inset-0 -z-10 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-[#e2d4c1]"
         >
           <defs>
             <pattern
               x="50%"
               y={-1}
-              id="1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84"
+              id="tl-pattern"
               width={200}
               height={200}
               patternUnits="userSpaceOnUse"
             >
-              <path d="M.5 200V.5H200" fill="none" />
+              <path d="M100 200V.5M.5 .5H200" fill="none" />
             </pattern>
           </defs>
-
-          <svg
-            x="50%"
-            y={-1}
-            className="overflow-visible fill-[#fdf7ee] dark:fill-[#17130d]"
-          >
+          <svg x="50%" y={-1} className="overflow-visible fill-[#fdf7ee]">
             <path
-              d="M-200 0h201v201h-201Z M600 0h201v201h-201Z M-400 600h201v201h-201Z M200 800h201v201h-201Z"
+              d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
               strokeWidth={0}
             />
           </svg>
-
           <rect
-            fill="url(#1f932ae7-37de-4c0a-a8b0-a6e3b4d44b84)"
+            fill="url(#tl-pattern)"
             width="100%"
             height="100%"
             strokeWidth={0}
@@ -55,94 +54,59 @@ export default function HeroSection() {
           />
         </div>
 
-        {/* CONTENT */}
-        <div className="overflow-hidden">
-          <div className="mx-auto max-w-7xl px-6 pt-36 pb-32 sm:pt-60 lg:px-8 lg:pt-32">
-            <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
-              <div className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
-                {/* HEADLINE — serif */}
-                <h1 className="text-5xl font-semibold tracking-tight text-pretty text-[#20140a] sm:text-7xl dark:text-white font-serif">
-                  Investing in the Future of Rural America
-                </h1>
+        <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-14 lg:px-8 lg:py-32">
+          {/* LEFT */}
+          <div className="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
+            <h1 className="text-5xl font-semibold tracking-tight text-pretty text-[#20140a] sm:text-7xl font-serif">
+              Investing in the Future of Rural America
+            </h1>
 
-                {/* PARAGRAPH — serif */}
-                <p className="mt-8 text-lg text-pretty text-[#5a4a36] sm:max-w-md sm:text-xl/8 lg:max-w-none dark:text-gray-300 font-serif">
-                  We help rural businesses transition to the next generation and
-                  support thoughtful land development that strengthens local
-                  communities. Our approach blends responsible capital, local
-                  partnerships, and long-term stewardship.
-                </p>
+            <p className="mt-8 text-lg text-pretty text-[#5a4a36] sm:text-xl/8 font-serif">
+              We help rural businesses transition to the next generation and
+              support thoughtful land development that strengthens local
+              communities. Our approach blends responsible capital, local
+              partnerships, and long-term stewardship.
+            </p>
 
-                {/* BUTTONS — keep sans for clarity */}
-                <div className="mt-10 flex items-center gap-x-6 font-sans">
-                  <a
-                    href="#"
-                    className="rounded-md bg-tl-brown px-3.5 py-2.5 text-sm font-semibold text-tl-gold shadow-xs hover:bg-[#4f3511] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tl-brown dark:bg-tl-gold dark:text-tl-black dark:hover:bg-[#ffe080] dark:focus-visible:outline-tl-gold"
-                  >
-                    Who We Support
-                  </a>
+            <div className="mt-10 flex items-center gap-x-6 font-sans">
+              <a
+                href="#"
+                className="rounded-md bg-tl-brown px-3.5 py-2.5 text-sm font-semibold text-tl-gold shadow-xs hover:bg-[#4f3511] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-tl-brown"
+              >
+                Who We Support
+              </a>
+              <a
+                href="#"
+                className="text-sm/6 font-semibold text-[#3c3227] hover:text-tl-brown"
+              >
+                Live demo <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
 
-                  <a
-                    href="#"
-                    className="text-sm/6 font-semibold text-[#3c3227] hover:text-tl-brown dark:text-tl-gold dark:hover:text-white"
-                  >
-                    Live demo <span aria-hidden="true">→</span>
-                  </a>
+          {/* RIGHT — VIDEO */}
+          <div className="mt-16 sm:mt-24 lg:mt-0 lg:shrink-0 lg:grow">
+            <div className="mx-auto max-w-xl lg:max-w-none">
+              <div className="relative overflow-hidden rounded-2xl bg-black/5 ring-1 ring-black/10 shadow-lg">
+                <div className="aspect-video w-full">
+                  {/* <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/Um63OQz3bjo"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe> */}
+                  <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/CqGflLHMy8M?si=74JzU5s1lk42fin7"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                  ></iframe>
                 </div>
               </div>
-
-              {/* IMAGE GRID — no font changes needed */}
-              <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
-                <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-0 xl:pt-80">
-                  <div className="relative">
-                    <img
-                      alt=""
-                      src="/images/stock/1.png"
-                      className="aspect-2/3 w-full rounded-xl bg-black/5 object-cover shadow-lg dark:bg-white/5"
-                    />
-                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/15" />
-                  </div>
-                </div>
-
-                <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
-                  <div className="relative">
-                    <img
-                      alt=""
-                      src="/images/stock/3.png"
-                      className="aspect-2/3 w-full rounded-xl bg-black/5 object-cover shadow-lg dark:bg-white/5"
-                    />
-                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/15" />
-                  </div>
-                  <div className="relative">
-                    <img
-                      alt=""
-                      src="/images/stock/2.png"
-                      className="aspect-2/3 w-full rounded-xl bg-black/5 object-cover shadow-lg dark:bg-white/5"
-                    />
-                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/15" />
-                  </div>
-                </div>
-
-                <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
-                  <div className="relative">
-                    <img
-                      alt=""
-                      src="/images/stock/7.png"
-                      className="aspect-2/3 w-full rounded-xl bg-black/5 object-cover shadow-lg dark:bg-white/5"
-                    />
-                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/15" />
-                  </div>
-                  <div className="relative">
-                    <img
-                      alt=""
-                      src="/images/stock/4.png"
-                      className="aspect-2/3 w-full rounded-xl bg-black/5 object-cover shadow-lg dark:bg-white/5"
-                    />
-                    <div className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-black/10 ring-inset dark:ring-white/15" />
-                  </div>
-                </div>
-              </div>
-              {/* END IMG GRID */}
             </div>
           </div>
         </div>

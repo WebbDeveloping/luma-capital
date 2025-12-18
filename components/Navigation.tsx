@@ -26,39 +26,53 @@ import {
   PhoneIcon,
   PlayCircleIcon,
   RectangleGroupIcon,
+  ArrowRightIcon,
+  ChartBarSquareIcon,
+  MapIcon,
+  BuildingStorefrontIcon,
 } from "@heroicons/react/20/solid";
+import Link from "next/link";
 
 const products = [
   {
-    name: "Capital solutions",
-    description: "Flexible, patient capital for rural business transitions.",
-    href: "#capital",
-    icon: ChartPieIcon,
+    name: "Private Businesses",
+    description:
+      "Established, profitable owner-operated businesses with clear paths to growth.",
+    href: "/assets-we-buy",
+    icon: ChartBarSquareIcon,
   },
   {
-    name: "Operator support",
-    description: "Hands-on support for new and existing owners.",
-    href: "#who-we-serve",
-    icon: CursorArrowRaysIcon,
+    name: "Land",
+    description:
+      "Rural land and development parcels aligned with stewardship and fundamentals.",
+    href: "/assets-we-buy",
+    icon: MapIcon,
   },
   {
-    name: "Risk & stewardship",
-    description: "Responsible structures that protect land and livelihoods.",
-    href: "#process",
-    icon: FingerPrintIcon,
-  },
-  {
-    name: "Lender partnerships",
-    description: "Collaborations with regional banks and co-ops.",
-    href: "#partnerships",
-    icon: SquaresPlusIcon,
+    name: "Flex / Light Industrial",
+    description:
+      "Essential-use commercial properties serving local operators and trades.",
+    href: "/assets-we-buy",
+    icon: BuildingStorefrontIcon,
   },
 ];
 
 const callsToAction = [
-  { name: "Watch overview", href: "#insights", icon: PlayCircleIcon },
-  { name: "Schedule a call", href: "#contact", icon: PhoneIcon },
-  { name: "View all solutions", href: "#capital", icon: RectangleGroupIcon },
+  {
+    name: "Sell a Business",
+    href: "/assets-we-buy",
+    icon: ArrowRightIcon,
+  },
+  {
+    name: "Sell Land",
+    href: "/assets-we-buy",
+    icon: ArrowRightIcon,
+  },
+  {
+    name: "Submit Property",
+    href: "/assets-we-buy",
+    icon: ArrowRightIcon,
+  },
 ];
 
 function TerraLumaLogo() {
@@ -87,10 +101,10 @@ export default function Example() {
       >
         {/* LOGO */}
         <div className="flex lg:flex-1">
-          <a href="#top" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">TerraLuma Capital</span>
             <TerraLumaLogo />
-          </a>
+          </Link>
         </div>
 
         {/* MOBILE MENU BUTTON */}
@@ -109,7 +123,7 @@ export default function Example() {
         <PopoverGroup className="hidden lg:flex lg:gap-x-10">
           <Popover>
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-white/80 hover:text-tl-gold">
-              Solutions
+              Assets We Buy
               <ChevronDownIcon
                 aria-hidden="true"
                 className="size-5 flex-none text-tl-gold"
@@ -126,7 +140,7 @@ export default function Example() {
                 className="absolute inset-0 top-1/2 bg-[#fdf7ee] shadow-lg ring-1 ring-black/5 dark:bg-tl-black dark:shadow-none dark:ring-white/15"
               />
               <div className="relative bg-[#fdf7ee] dark:bg-tl-black">
-                <div className="mx-auto grid max-w-7xl grid-cols-4 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
+                <div className="mx-auto grid max-w-7xl grid-cols-3 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
                   {products.map((item) => (
                     <div
                       key={item.name}
@@ -174,30 +188,23 @@ export default function Example() {
               </div>
             </PopoverPanel>
           </Popover>
-
           <a
-            href="#who-we-serve"
+            href="/testimonials"
             className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
           >
-            Who we serve
+            Investor Testimonials
           </a>
           <a
-            href="#process"
+            href="/opportunity"
             className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
           >
-            Process
+            Opportunity
           </a>
           <a
-            href="#about"
+            href="/faq"
             className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
           >
-            About
-          </a>
-          <a
-            href="#insights"
-            className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
-          >
-            Insights
+            FAQ&apos;s
           </a>
         </PopoverGroup>
 
@@ -238,7 +245,7 @@ export default function Example() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-white/10">
               <div className="space-y-2 py-6">
-                <Disclosure as="div" className="-mx-3">
+                {/* <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
                     Solutions
                     <ChevronDownIcon
@@ -258,13 +265,13 @@ export default function Example() {
                       </DisclosureButton>
                     ))}
                   </DisclosurePanel>
-                </Disclosure>
+                </Disclosure> */}
 
                 <a
-                  href="#who-we-serve"
+                  href="/assets-we-buy"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                 >
-                  Who we serve
+                  Assets We Buy
                 </a>
                 <a
                   href="#process"
@@ -273,16 +280,16 @@ export default function Example() {
                   Process
                 </a>
                 <a
-                  href="#about"
+                  href="/opportunity"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                 >
-                  About
+                  Opportunity
                 </a>
                 <a
-                  href="#insights"
+                  href="/testimonials"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text:white hover:bg-white/5"
                 >
-                  Insights
+                  Investor Testimonials
                 </a>
               </div>
 
