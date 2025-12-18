@@ -31,7 +31,7 @@ function InvestorTestimonialsHero() {
       <div className="absolute inset-0 -z-20">
         <img
           alt=""
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80"
+          src="/images/land-business/bg/4.png"
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-[#20140a]/55" />
@@ -46,16 +46,16 @@ function InvestorTestimonialsHero() {
       {/* Content (kept similar to your original sizing) */}
       <div className="mx-auto max-w-2xl text-center font-serif">
         <p className="text-sm font-semibold tracking-wide text-[#FFE898]">
-          TerraLuma Capital
+          Investor Testimonials
         </p>
 
         <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-6xl">
-          Investor perspectives
+          Chosen by Investors Who Think Long Term
         </h1>
 
         <p className="mt-6 text-lg text-[#f3eadb] sm:text-xl/8">
-          Why experienced operators and lenders align with TerraLuma’s
-          long-term, stewardship-driven capital approach.
+          Investor perspectives on alignment, structure, and TerraLuma’s
+          stewardship-driven mandate.
         </p>
       </div>
     </div>

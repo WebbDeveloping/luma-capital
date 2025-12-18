@@ -91,8 +91,8 @@ export default function LandBlock() {
           <div className="font-serif">
             <p className="text-base/7 font-semibold text-[#624315]">Land</p>
 
-            <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-[#21140a] sm:text-5xl">
-              We acquire rural land with long-term potential.
+            <h2 className="mt-2 font-serif text-4xl font-semibold text-pretty text-[#21140a] sm:text-5xl">
+              We Acquire Rural Land with Long-Term Potential.
             </h2>
 
             <p className="mt-6 text-lg/8 text-[#4f4537]">

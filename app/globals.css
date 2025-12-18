@@ -2,8 +2,8 @@
 
 /* Load Tailwind */
 @import "tailwindcss";
+
 /* Make Tailwind's `dark:` variant follow data-theme="dark" */
-/* stylelint-disable-next-line */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ===========================
@@ -71,32 +71,23 @@
   --color-brand-primary: var(--color-tl-brown);
   --color-brand-accent: var(--color-tl-gold);
 
-  /* 🔑 Map Tailwind font tokens */
+  /* Tailwind font tokens */
   --font-sans: "Montserrat", system-ui, -apple-system, sans-serif;
   --font-serif: "Tiempos Fine", ui-serif, Georgia, serif;
 
   /* Optional aliases */
   --font-tl-display: var(--font-serif);
   --font-tl-sans: var(--font-sans);
-
-  --text-tl-header: 1rem;
-  --text-tl-header--line-height: 1.35;
-
-  --text-tl-sub: 0.75rem;
-  --text-tl-sub--line-height: 1.4;
-
-  --text-tl-body: 0.625rem;
-  --text-tl-body--line-height: 1.5;
 }
 
 /* ===========================
-   LIGHT / DARK THEME TOKENS
+   THEME TOKENS (LIGHT / DARK)
    =========================== */
 
 /* Default: light theme */
 :root {
   color-scheme: light;
-  --background: #f9f5ee; /* light parchment */
+  --background: #f9f5ee; /* parchment */
   --foreground: #111111;
   --surface: #ffffff;
   --surface-muted: #f1e6d6;
@@ -113,7 +104,7 @@
   --border-subtle: rgba(0, 0, 0, 0.06);
 }
 
-/* Dark theme is no longer used*/
+/* Dark theme (data-theme="dark") */
 :root[data-theme="dark"] {
   color-scheme: dark;
   --background: var(--color-tl-black);
@@ -124,25 +115,8 @@
 }
 
 /* ===========================
-   GLOBAL ELEMENTS
+   GLOBAL RESET / BASE
    =========================== */
-
-@layer base {
-  /* Body text = Montserrat */
-  body {
-    @apply font-sans;
-  }
-
-  /* Headings = Tiempos Fine */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-serif;
-  }
-}
 
 *,
 *::before,
@@ -155,58 +129,87 @@ body {
   height: 100%;
 }
 
-body {
-  margin: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
-}
+/* ===========================
+   TYPOGRAPHY SYSTEM
+   =========================== */
 
-/* Optional helpers so you can use these in Tailwind via arbitrary values */
-.bg-app {
-  background-color: var(--background);
-}
+@layer base {
+  :root {
+    /* Montserrat (body + UI) */
+    --body-leading: 1.65;
+    --body-tracking: -0.01em;
 
-.text-app {
-  color: var(--foreground);
+    /* Tiempos Fine (display) */
+    --display-tracking: -0.02em;
+  }
+
+  html {
+    text-rendering: geometricPrecision;
+  }
+
+  body {
+    margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+
+    /* Default font family = Montserrat via Tailwind token */
+    font-family: var(--font-sans);
+
+    /* Font feel fixes */
+    line-height: var(--body-leading);
+    letter-spacing: var(--body-tracking);
+    font-kerning: normal;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  }
+
+  /* Headings = Tiempos Fine */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    letter-spacing: var(--display-tracking);
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  }
+
+  /* Display serif needs tighter leading at large sizes */
+  h1 {
+    line-height: 1.02;
+  }
+  h2 {
+    line-height: 1.08;
+  }
+  h3 {
+    line-height: 1.12;
+  }
+  h4 {
+    line-height: 1.18;
+  }
+
+  /* Small UI text: keep tracking neutral so it stays crisp */
+  small,
+  .text-xs,
+  .text-sm {
+    letter-spacing: 0em;
+  }
 }
 
 /* ===========================
-   LIGHT / DARK THEME TOKENS
+   OPTIONAL HELPERS
    =========================== */
 
-/* Default: light theme */
-html {
-  color-scheme: light;
-  --background: #f9f5ee; /* light parchment */
-  --foreground: #111111;
-  --surface: #ffffff;
-  --surface-muted: #f1e6d6;
-  --border-subtle: rgba(0, 0, 0, 0.06);
-}
-
-/* Dark theme when <html class="dark"> */
-html.dark {
-  color-scheme: dark;
-  --background: var(--color-tl-black);
-  --foreground: #ffffff;
-  --surface: #050505;
-  --surface-muted: #17130d;
-  --border-subtle: rgba(255, 255, 255, 0.08);
-}
-
-body {
-  margin: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-tl-sans);
-}
-
-/* Optional helpers */
 .bg-app {
   background-color: var(--background);
 }
 
 .text-app {
   color: var(--foreground);
+}
+
+/* Utility class for all-caps labels in Montserrat */
+.caps {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }

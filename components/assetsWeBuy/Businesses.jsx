@@ -44,13 +44,14 @@ export default function BusinessesBlock() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
           {/* LEFT: Content */}
-          <div className="font-serif lg:order-1">
+          {/* LEFT: Content */}
+          <div className="lg:order-1">
             <p className="text-base/7 font-semibold text-[#624315]">
               Private Businesses
             </p>
 
-            <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-[#21140a] sm:text-5xl">
-              We acquire strong, privately owned businesses.
+            <h2 className="mt-2 font-serif text-4xl font-semibold text-pretty text-[#21140a] sm:text-5xl">
+              We Acquire Strong, Privately Owned Businesses.
             </h2>
 
             <p className="mt-6 text-lg/8 text-[#4f4537]">

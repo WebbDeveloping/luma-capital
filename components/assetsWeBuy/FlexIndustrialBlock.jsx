@@ -8,8 +8,8 @@ export default function FlexIndustrialBlock() {
             Flex / Light Industrial Real Estate
           </h2>
 
-          <p className="mt-2 text-4xl font-semibold tracking-tight text-[#21140a] sm:text-5xl lg:text-balance dark:text-white">
-            Commercial properties built for essential work
+          <p className="mt-2 font-serif text-4xl font-semibold tracking-tight text-[#21140a] sm:text-5xl lg:text-balance dark:text-white">
+            Commercial Properties Built for Essential Work
           </p>
 
           <p className="mt-6 text-lg/8 text-[#5a4a36] dark:text-gray-300 font-sans">
