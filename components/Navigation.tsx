@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   Dialog,
   DialogPanel,
@@ -13,25 +14,14 @@ import {
   PopoverGroup,
   PopoverPanel,
 } from "@headlessui/react";
-import {
-  Bars3Icon,
-  ChartPieIcon,
-  CursorArrowRaysIcon,
-  FingerPrintIcon,
-  SquaresPlusIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import {
   ChevronDownIcon,
-  PhoneIcon,
-  PlayCircleIcon,
-  RectangleGroupIcon,
   ArrowRightIcon,
   ChartBarSquareIcon,
   MapIcon,
   BuildingStorefrontIcon,
 } from "@heroicons/react/20/solid";
-import Link from "next/link";
 
 const products = [
   {
@@ -58,28 +48,16 @@ const products = [
 ];
 
 const callsToAction = [
-  {
-    name: "Sell a Business",
-    href: "/assets-we-buy",
-    icon: ArrowRightIcon,
-  },
-  {
-    name: "Sell Land",
-    href: "/assets-we-buy",
-    icon: ArrowRightIcon,
-  },
-  {
-    name: "Submit Property",
-    href: "/assets-we-buy",
-    icon: ArrowRightIcon,
-  },
+  { name: "Sell a Business", href: "/assets-we-buy", icon: ArrowRightIcon },
+  { name: "Sell Land", href: "/assets-we-buy", icon: ArrowRightIcon },
+  { name: "Submit Property", href: "/assets-we-buy", icon: ArrowRightIcon },
 ];
 
 function TerraLumaLogo() {
   return (
     <div className="flex items-center">
       <Image
-        src="/images/logo-terraluma-capital.png" // make sure this file lives in /public/images/logo.png
+        src="/images/logo-terraluma-capital.png"
         alt="TerraLuma Capital"
         width={140}
         height={32}
@@ -94,15 +72,18 @@ export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="relative isolate z-10 bg-[#15100b] text-white dark:bg-tl-black dark:text-white">
+    <header className="sticky top-0 z-50 bg-[#15100b] text-white dark:bg-tl-black">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
       >
         {/* LOGO */}
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">TerraLuma Capital</span>
+          <Link
+            href="/"
+            className="-m-1.5 p-1.5"
+            aria-label="TerraLuma Capital Home"
+          >
             <TerraLumaLogo />
           </Link>
         </div>
@@ -134,7 +115,6 @@ export default function Example() {
               transition
               className="absolute inset-x-0 top-16 bg-[#fdf7ee] transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in dark:bg-tl-black"
             >
-              {/* shadow background */}
               <div
                 aria-hidden="true"
                 className="absolute inset-0 top-1/2 bg-[#fdf7ee] shadow-lg ring-1 ring-black/5 dark:bg-tl-black dark:shadow-none dark:ring-white/15"
@@ -146,19 +126,19 @@ export default function Example() {
                       key={item.name}
                       className="group relative rounded-lg p-6 text-sm/6 hover:bg-[#f1e3d1] dark:hover:bg-white/5"
                     >
-                      <div className="flex size-11 items-center justify-center rounded-lg bg-[#f4e7d6] group-hover:bg-[#fffaf2] dark:bg-[#22201a] dark:group-hover:bg[#2c261c]">
+                      <div className="flex size-11 items-center justify-center rounded-lg bg-[#f4e7d6] group-hover:bg-[#fffaf2] dark:bg-[#22201a] dark:group-hover:bg-[#2c261c]">
                         <item.icon
                           aria-hidden="true"
-                          className="size-6 text-tl-brown group-hover:text-tl-brown dark:text-tl-gold dark:group-hover:text-white"
+                          className="size-6 text-tl-brown dark:text-tl-gold"
                         />
                       </div>
-                      <a
+                      <Link
                         href={item.href}
                         className="mt-6 block font-semibold text-[#21140a] dark:text-white"
                       >
                         {item.name}
                         <span className="absolute inset-0" />
-                      </a>
+                      </Link>
                       <p className="mt-1 text-[#5a4a36] dark:text-gray-300">
                         {item.description}
                       </p>
@@ -170,7 +150,7 @@ export default function Example() {
                   <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="grid grid-cols-3 divide-x divide-black/5 border-x border-black/5 dark:divide-white/10 dark:border-white/10">
                       {callsToAction.map((item) => (
-                        <a
+                        <Link
                           key={item.name}
                           href={item.href}
                           className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-[#21140a] hover:bg-[#e8d6c0] dark:text-white dark:hover:bg-[#201a11]"
@@ -180,7 +160,7 @@ export default function Example() {
                             className="size-5 flex-none text-[#9a8566] dark:text-gray-400"
                           />
                           {item.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
@@ -188,24 +168,27 @@ export default function Example() {
               </div>
             </PopoverPanel>
           </Popover>
-          <a
+
+          <Link
             href="/testimonials"
             className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
           >
             Investor Testimonials
-          </a>
-          <a
+          </Link>
+
+          <Link
             href="/opportunity"
             className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
           >
             Opportunity
-          </a>
-          <a
+          </Link>
+
+          <Link
             href="/faq"
             className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
           >
             FAQ&apos;s
-          </a>
+          </Link>
         </PopoverGroup>
 
         {/* DESKTOP CTA */}
@@ -225,13 +208,20 @@ export default function Example() {
         onClose={setMobileMenuOpen}
         className="lg:hidden"
       >
-        <div className="fixed inset-0 z-50" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#15100b] p-6 sm:max-w-sm sm:ring-1 sm:ring-white/10 dark:bg-tl-black dark:sm:ring-white/10">
+        <div className="fixed inset-0 z-50 bg-black/40" />
+
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-[#15100b] p-6 sm:max-w-sm sm:ring-1 sm:ring-white/10 dark:bg-tl-black">
           <div className="flex items-center justify-between">
-            <a href="#top" className="-m-1.5 p-1.5">
-              <span className="sr-only">TerraLuma Capital</span>
+            {/* ✅ MOBILE LOGO NOW GOES HOME */}
+            <Link
+              href="/"
+              onClick={() => setMobileMenuOpen(false)}
+              className="-m-1.5 p-1.5"
+              aria-label="TerraLuma Capital Home"
+            >
               <TerraLumaLogo />
-            </a>
+            </Link>
+
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
@@ -242,60 +232,76 @@ export default function Example() {
             </button>
           </div>
 
-          <div className="mt-6 flow-root">
+          <div className="mt-8 flow-root">
             <div className="-my-6 divide-y divide-white/10">
               <div className="space-y-2 py-6">
-                {/* <Disclosure as="div" className="-mx-3">
+                {/* Assets We Buy (mobile dropdown mirrors desktop) */}
+                <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
-                    Solutions
+                    Assets We Buy
                     <ChevronDownIcon
                       aria-hidden="true"
-                      className="size-5 flex-none group-data-open:rotate-180"
+                      className="size-5 flex-none transition group-data-open:rotate-180"
                     />
                   </DisclosureButton>
-                  <DisclosurePanel className="mt-2 space-y-2">
-                    {[...products, ...callsToAction].map((item) => (
-                      <DisclosureButton
+
+                  <DisclosurePanel className="mt-2 space-y-1">
+                    {products.map((item) => (
+                      <Link
                         key={item.name}
-                        as="a"
                         href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white/90 hover:bg-white/5"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+
+                    <div className="my-2 h-px bg-white/10" />
+
+                    {callsToAction.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
                         className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white hover:bg-white/5"
                       >
                         {item.name}
-                      </DisclosureButton>
+                      </Link>
                     ))}
                   </DisclosurePanel>
-                </Disclosure> */}
+                </Disclosure>
 
-                <a
-                  href="/assets-we-buy"
+                {/* ✅ EXACT DESKTOP LINKS + ORDER */}
+                <Link
+                  href="/testimonials"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                 >
-                  Assets We Buy
-                </a>
-                <a
-                  href="#process"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg:white/5"
-                >
-                  Process
-                </a>
-                <a
+                  Investor Testimonials
+                </Link>
+
+                <Link
                   href="/opportunity"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                 >
                   Opportunity
-                </a>
-                <a
-                  href="/testimonials"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text:white hover:bg-white/5"
+                </Link>
+
+                <Link
+                  href="/faq"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                 >
-                  Investor Testimonials
-                </a>
+                  FAQ&apos;s
+                </Link>
               </div>
 
               <div className="py-6">
                 <a
                   href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-tl-gold hover:bg-white/5"
                 >
                   Contact
