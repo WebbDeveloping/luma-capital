@@ -6,6 +6,7 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
+import CTASection from "../../../components/home/CtaSection";
 
 export const faqs = [
   {
@@ -101,49 +102,70 @@ export const faqs = [
 
 function FaqHero() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#f9f5ee] px-6 py-24 sm:py-32 lg:px-8">
-      {/* Subtle grid + warm wash */}
-      <div className="absolute inset-0 -z-10">
-        <svg
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full stroke-[#e2d4c1]"
-        >
-          <defs>
-            <pattern
-              id="tl-grid"
-              width="64"
-              height="64"
-              patternUnits="userSpaceOnUse"
-            >
-              <path d="M.5 64V.5H64" fill="none" />
-            </pattern>
-          </defs>
-          <rect
-            width="100%"
-            height="100%"
-            fill="url(#tl-grid)"
-            opacity="0.35"
+    <section className="relative isolate overflow-hidden bg-[#f3eadb] px-6 py-24 sm:py-32 lg:px-8">
+      {/* TerraLuma grid (same family as other sections) */}
+      <svg
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-[#d8c6ad]"
+      >
+        <defs>
+          <pattern
+            x="50%"
+            y="-1"
+            id="tl-pattern-faq"
+            width="200"
+            height="200"
+            patternUnits="userSpaceOnUse"
+          >
+            {/* crosshair grid, matches your other blocks */}
+            <path d="M100 200V.5M.5 .5H200" fill="none" />
+          </pattern>
+        </defs>
+
+        {/* subtle filled tiles like your other hero */}
+        <svg x="50%" y="-1" className="overflow-visible fill-[#efe1cd]">
+          <path
+            d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
+            strokeWidth="0"
           />
         </svg>
 
-        <div
-          aria-hidden="true"
-          className="absolute -top-32 left-1/2 -z-10 h-96 w-96 -translate-x-1/2 rounded-full bg-[#FFE898]/25 blur-3xl"
+        <rect
+          fill="url(#tl-pattern-faq)"
+          width="100%"
+          height="100%"
+          strokeWidth="0"
         />
+      </svg>
+
+      {/* warmer wash + depth (slightly darker than the page) */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-[#20140a]/0 via-[#20140a]/0 to-[#20140a]/10"
+      />
+
+      {/* blob accent (same vibe as other sections) */}
+      <div
+        aria-hidden="true"
+        className="absolute top-0 right-0 left-1/2 -z-10 -ml-24 transform-gpu overflow-hidden blur-3xl lg:ml-24 xl:ml-48"
+      >
         <div
-          aria-hidden="true"
-          className="absolute -bottom-40 right-0 -z-10 h-[28rem] w-[28rem] translate-x-1/3 rounded-full bg-[#624315]/10 blur-3xl"
+          className="aspect-[801/1036] w-[200px] bg-gradient-to-tr from-[#FFE898] to-[#624315] opacity-25"
+          style={{
+            clipPath:
+              "polygon(63.1% 29.5%, 100% 17.1%, 76.6% 3%, 48.4% 0%, 44.6% 4.7%, 54.5% 25.3%, 59.8% 49%, 55.2% 57.8%, 44.4% 57.2%, 27.8% 47.9%, 35.1% 81.5%, 0% 97.7%, 39.2% 100%, 35.2% 81.4%, 97.2% 52.8%, 63.1% 29.5%)",
+          }}
         />
       </div>
 
       <div className="mx-auto max-w-2xl text-center">
         <p className="text-base/7 font-semibold text-[#624315]">FAQs</p>
 
-        <h1 className="mt-2 font-serif text-4xl font-semibold tracking-tight text-[#1b1308] sm:text-6xl">
+        <h1 className="mt-2 font-serif text-4xl font-semibold tracking-tight text-[#20140a] sm:text-6xl">
           Clarity for accredited investors
         </h1>
 
-        <p className="mt-6 text-lg/8 text-[#1b1308]/70">
+        <p className="mt-6 text-lg/8 text-[#5a4a36]">
           Straight answers on how TerraLuma is structured, what we acquire, and
           how we work with investors and local stakeholders.
         </p>
@@ -206,6 +228,7 @@ export default function FaqPage() {
     <main className="bg-[#f9f5ee]">
       <FaqHero />
       <FaqAccordion />
+      <CTASection />
     </main>
   );
 }
