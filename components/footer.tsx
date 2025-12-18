@@ -1,29 +1,25 @@
+import Link from "next/link";
+
 const navigation = {
-  solutions: [
-    { name: "Capital solutions", href: "#capital" },
-    { name: "Succession transitions", href: "#investment-focus" },
-    { name: "Rural operators", href: "#who-we-serve" },
-    { name: "Partnership structures", href: "#partnerships" },
-    { name: "Insights", href: "#insights" },
+  explore: [
+    { name: "Assets We Buy", href: "/assets-we-buy" },
+    { name: "Opportunity", href: "/opportunity" },
+    { name: "Investor Testimonials", href: "/testimonials" },
+    { name: "FAQ’s", href: "/faq" },
   ],
-  support: [
-    { name: "Contact", href: "#contact" },
-    { name: "FAQs", href: "/faqs" },
-    { name: "Resources", href: "/resources" },
+  assets: [
+    { name: "Private Businesses", href: "/assets-we-buy" },
+    { name: "Land", href: "/assets-we-buy" },
+    { name: "Flex / Light Industrial", href: "/assets-we-buy" },
+    { name: "Submit Property", href: "/assets-we-buy" },
   ],
-  company: [
-    { name: "About TerraLuma", href: "#about" },
-    { name: "Team", href: "#team" },
-    { name: "News & insights", href: "#insights" },
-    { name: "Regional partners", href: "#partnerships" },
-  ],
+  contact: [{ name: "Contact", href: "#contact" }],
   legal: [
     { name: "Terms of service", href: "/terms" },
     { name: "Privacy policy", href: "/privacy" },
     { name: "Disclosures", href: "/disclosures" },
   ],
   social: [
-    // same icons, just re-used
     {
       name: "Facebook",
       href: "#",
@@ -114,8 +110,8 @@ export default function Footer() {
             <TerraLumaFooterLogo />
             <p className="text-sm/6 text-balance text-white/70">
               Purpose-built capital for rural businesses and land development,
-              with a focus on continuity, stewardship, and resilient local
-              economies.
+              with a focus on stewardship, long-term alignment, and resilient
+              local economies.
             </p>
             <div className="flex gap-x-6">
               {navigation.social.map((item) => (
@@ -135,27 +131,25 @@ export default function Footer() {
           <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm/6 font-semibold text-white">
-                  Solutions
-                </h3>
+                <h3 className="text-sm/6 font-semibold text-white">Explore</h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {navigation.solutions.map((item) => (
+                  {navigation.explore.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className="text-sm/6 text-white/60 hover:text-tl-gold"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div className="mt-10 md:mt-0">
-                <h3 className="text-sm/6 font-semibold text-white">Support</h3>
+                <h3 className="text-sm/6 font-semibold text-white">Contact</h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {navigation.support.map((item) => (
+                  {navigation.contact.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
@@ -171,16 +165,16 @@ export default function Footer() {
 
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
-                <h3 className="text-sm/6 font-semibold text-white">Company</h3>
+                <h3 className="text-sm/6 font-semibold text-white">Assets</h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {navigation.company.map((item) => (
+                  {navigation.assets.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className="text-sm/6 text-white/60 hover:text-tl-gold"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -191,12 +185,12 @@ export default function Footer() {
                 <ul role="list" className="mt-6 space-y-4">
                   {navigation.legal.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className="text-sm/6 text-white/60 hover:text-tl-gold"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
