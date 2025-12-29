@@ -27,3 +27,11 @@ const features = [
     icon: ArrowPathIcon,
   },
 ];
+
+export default function Vision() {
+  return (
+    <div>
+      <h2>Vision</h2>
+    </div>
+  );
+}
