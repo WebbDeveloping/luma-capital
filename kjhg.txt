@@ -1,0 +1,273 @@
+TerraLuma Capital — What We Need to Know (Website Planning Summary)
+1. Core Identity
+
+TerraLuma Capital is a purpose-driven private investment firm.
+
+Core value: Invest and serve with purpose.
+This is not marketing language — it’s the firm’s decision filter.
+
+Implications for the site:
+
+Tone: grounded, ethical, long-term, non-speculative
+
+No hype, no “beat the market” language
+
+Emphasis on stewardship, continuity, and responsible capital
+
+2. Who TerraLuma Is For (Primary Audience)
+
+Accredited investors only.
+This should be clear early and repeated calmly.
+
+Ideal investor profile:
+
+High-net-worth individuals
+
+Seeking predictable income (12–15%)
+
+Prefers private markets over public equities
+
+Values tangible assets and downside awareness
+
+Comfortable with $500k minimum, 36-month term
+
+Website goal for investors:
+
+Build trust
+
+Educate
+
+Qualify
+
+Push to 1:1 call, not instant signup
+
+3. What TerraLuma Does (Business Model)
+
+Acquires and operates real assets and businesses in private markets.
+
+Three asset classes:
+
+Private Businesses
+
+Land
+
+Flex / Light Industrial Real Estate
+
+Key differentiators:
+
+Direct sourcing (no auctions, no broker feeding frenzy)
+
+Operates where institutions don’t (sub-institutional deals)
+
+Focused on cash flow + long-term value, not speculation
+
+4. Investor Economics (Must Be Very Clear)
+
+Two income structures:
+
+12% annual interest — paid monthly
+
+15% annual interest — paid quarterly
+
+Important clarifiers (site should highlight):
+
+True annual interest (not “target”)
+
+No management fees
+
+Not tied to stock market performance
+
+Fixed income structure
+
+Minimum: $500,000
+Term: 36 months
+
+IRA note:
+
+Self-Directed IRAs and Solo 401(k)s allowed
+
+TerraLuma helps guide conversion
+
+5. Risk Philosophy (Trust Builder)
+
+TerraLuma does not claim to be risk-free.
+
+Core positioning:
+
+Public markets = concentration + systemic risk
+
+TerraLuma = real assets, operating history, essential demand
+
+Security narrative:
+
+Tangible collateral
+
+Proven cash-flowing businesses
+
+Conservative acquisition criteria
+
+Regional focus for operational control
+
+This section should feel adult, honest, and sober — not defensive.
+
+6. Asset Criteria (Operational Credibility)
+
+Private Businesses
+
+7+ years operating history
+
+$500k–$5M average net profit
+
+Verifiable financials
+
+Clear operational upside (marketing, systems, tech)
+
+Land
+
+Bought < 50% of retail lot value
+
+Road frontage
+
+Power + water access
+
+Perc/soil viable
+
+Minimal flood exposure
+
+Usable topography
+
+Flex / Light Industrial
+
+Blue-collar / service tenants
+
+Value-add opportunities
+
+High-demand growth markets
+
+Phase I environmental completed
+
+7. Geographic Focus (Why These Markets)
+
+Southeastern U.S.:
+
+Nashville
+
+Huntsville
+
+Knoxville
+
+Chattanooga
+
+Why this matters for the site:
+
+Migration inflows
+
+Business-friendly climates
+
+Trades + logistics demand
+
+Development pressure supporting land value
+
+Strong small-business ecosystems
+
+This supports both investor confidence and seller relevance.
+
+8. The Macro Thesis (Education Sections)
+
+Two major tailwinds TerraLuma is built around:
+
+A. Land Ownership Transition
+
+300–350M acres transferring over ~20 years
+
+Aging landowners, weak succession
+
+Scarcity + development pressure
+
+Institutions largely absent at this scale
+
+B. Small Business “Silver Tsunami”
+
+Millions of Baby Boomer–owned businesses exiting
+
+~48% of owners actively planning exit
+
+Many lack succession plans
+
+Creates acquisition opportunities with real cash flow
+
+These sections should:
+
+Educate
+
+De-risk the strategy
+
+Justify long-term relevance
+
+9. Seller-Facing Side (Second Audience)
+
+TerraLuma also speaks to business owners and landowners.
+
+Seller value props:
+
+Fast, certain cash closes
+
+Seller financing options
+
+Creative structures
+
+Confidential, relationship-driven process
+
+Clear CTAs:
+
+“Tell us about your business”
+
+“Get a fast, fair land offer”
+
+“Submit your property for evaluation”
+
+This should feel approachable, not institutional.
+
+10. Conversion Strategy (Critical)
+
+No frictionless investing. No dashboards. No public deals page.
+
+Primary CTAs:
+
+“Schedule a call”
+
+“Start a confidential conversation”
+
+“See if this is a fit”
+
+Website flow:
+
+Establish trust
+
+Explain philosophy
+
+Show discipline
+
+Qualify the visitor
+
+Push to conversation
+
+How This Translates to a Website Plan (High Level)
+
+Top-level pages likely needed:
+
+Home
+
+About
+
+Investment Strategy
+
+Assets We Buy 
+
+Opportunity (Land + Small Business)
+
+Investor FAQ 
+
+Testimonials 
+
+Contact / Schedule Call

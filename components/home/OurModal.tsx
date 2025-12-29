@@ -1,185 +1,171 @@
-"use client";
 import {
-  CloudArrowUpIcon,
-  LockClosedIcon,
-  ServerIcon,
+  MapIcon,
+  BuildingStorefrontIcon,
+  ShieldCheckIcon,
 } from "@heroicons/react/20/solid";
 
 export default function OurModal() {
   return (
-    <div className="relative isolate overflow-hidden bg-[#f3eadb] px-6 py-24 sm:py-32 lg:overflow-visible lg:px-0 dark:bg-tl-black">
-      {/* patterned background */}
-      <div className="absolute inset-0 -z-10 overflow-hidden">
-        <svg
-          aria-hidden="true"
-          className="absolute top-0 left-[max(50%,25rem)] h-256 w-512 -translate-x-1/2 mask-[radial-gradient(64rem_64rem_at_top,white,transparent)] stroke-[#e2d4c1] dark:stroke-[#262019]"
-        >
-          <defs>
-            <pattern x="50%" y={-1} id="e813992c-7d03-4cc4-a2bd-151760b470a0">
-              <path d="M100 200V.5M.5 .5H200" fill="none" />
-            </pattern>
-          </defs>
-          <svg
-            x="50%"
-            y={-1}
-            className="overflow-visible fill-[#f7f0e4] dark:fill-[#17130d]"
-          >
-            <path
-              d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z"
-              strokeWidth={0}
-            />
-          </svg>
-          <rect
-            fill="url(#e813992c-7d03-4cc4-a2bd-151760b470a0)"
-            width="100%"
-            height="100%"
-            strokeWidth={0}
-          />
-        </svg>
+    <section className="relative isolate overflow-hidden bg-[#f9f5ee] py-24 sm:py-32">
+      {/* Warm motif blob */}
+      <div
+        aria-hidden="true"
+        className="absolute -top-80 left-[max(6rem,33%)] -z-10 transform-gpu blur-3xl sm:left-1/2 md:top-20 lg:ml-20 xl:top-3 xl:ml-56"
+      >
+        <div
+          style={{
+            clipPath:
+              "polygon(63.1% 29.6%, 100% 17.2%, 76.7% 3.1%, 48.4% 0.1%, 44.6% 4.8%, 54.5% 25.4%, 59.8% 49.1%, 55.3% 57.9%, 44.5% 57.3%, 27.8% 48%, 35.1% 81.6%, 0% 97.8%, 39.3% 100%, 35.3% 81.5%, 97.2% 52.8%, 63.1% 29.6%)",
+          }}
+          className="aspect-801/1036 w-200.25 bg-linear-to-tr from-[#caa85a] to-[#624315] opacity-20"
+        />
       </div>
 
-      {/* CONTENT */}
-      <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start lg:gap-y-10">
-        {/* Heading block */}
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-1 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
-          <div className="lg:pr-4">
-            <div className="lg:max-w-lg">
-              <p className="text-base/7 font-semibold text-tl-brown dark:text-tl-gold font-serif">
-                Our model
-              </p>
-              <h1 className="mt-2 text-4xl font-semibold tracking-tight text-[#21140a] sm:text-5xl dark:text-white font-serif">
-                A capital stack designed for rural reality
-              </h1>
-              <p className="mt-6 text-xl/8 text-[#4f4537] dark:text-gray-300 font-serif">
-                TerraLuma Capital sits alongside community banks and local
-                operators to solve succession, fund growth, and keep ownership
-                rooted in the communities that built these businesses and
-                homesteads.
-              </p>
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Top header */}
+        <div className="mx-auto max-w-2xl lg:mx-0">
+          <p className="text-base/7 font-semibold text-[#624315]">
+            TerraLuma Capital
+          </p>
+
+          <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-[#1b1308] sm:text-5xl">
+            Our investment model is built for durability.
+          </h2>
+
+          <p className="mt-6 text-xl/8 text-[#5a4a36]">
+            We acquire real, understandable assets at attractive valuations,
+            improve performance through hands-on ownership, and hold for
+            long-term value — not short-term exits.
+          </p>
+        </div>
+
+        <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:mt-10 lg:max-w-none lg:grid-cols-12">
+          {/* Sticky quote */}
+          <div className="relative lg:order-last lg:col-span-5">
+            <svg
+              aria-hidden="true"
+              className="absolute -top-160 left-1 -z-10 h-256 w-702 -translate-x-1/2 mask-[radial-gradient(64rem_64rem_at_111.5rem_0%,white,transparent)] stroke-[#1b1308]/10"
+            >
+              <defs>
+                <pattern
+                  id="tl-grid"
+                  width={200}
+                  height={200}
+                  patternUnits="userSpaceOnUse"
+                >
+                  <path d="M0.5 0V200M200 0.5L0 0.499983" />
+                </pattern>
+              </defs>
+              <rect
+                fill="url(#tl-grid)"
+                width="100%"
+                height="100%"
+                strokeWidth={0}
+              />
+            </svg>
+
+            {/* sticky container */}
+            <div className="lg:sticky lg:top-24">
+              <figure className="border-l border-[#624315] pl-8">
+                <blockquote className="text-xl/8 font-semibold tracking-tight text-[#1b1308]">
+                  <p>
+                    “We invest and operate with purpose — building durable value
+                    for people, capital, and communities over the long term.”
+                  </p>
+                </blockquote>
+
+                <figcaption className="mt-8 flex gap-x-4">
+                  <div className="mt-1 size-10 flex-none rounded-full bg-[#e8dbc7] ring-1 ring-inset ring-black/10" />
+                  <div className="text-sm/6">
+                    <div className="font-semibold text-[#1b1308]">
+                      TerraLuma Capital
+                    </div>
+                    <div className="text-[#5a4a36]">
+                      Long-term, stewardship-driven ownership
+                    </div>
+                  </div>
+                </figcaption>
+              </figure>
             </div>
           </div>
-        </div>
 
-        {/* Video / sticky card */}
-        <VideoBlock />
+          {/* Body content */}
+          <div className="max-w-xl text-base/7 text-[#5a4a36] lg:col-span-7">
+            <p>
+              TerraLuma Capital is a long-term investment firm focused on
+              acquiring and stewarding tangible, cash-generating real assets
+              across land, operating businesses, and select real estate. We
+              partner with sellers, operators, and accredited investors who
+              value permanence, alignment, and disciplined execution.
+            </p>
 
-        {/* Body copy + bullets */}
-        <div className="lg:col-span-2 lg:col-start-1 lg:row-start-2 lg:mx-auto lg:grid lg:w-full lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 font-sans">
-          <div className="lg:pr-4">
-            <div className="max-w-xl text-base/7 text-[#5a4a36] lg:max-w-lg dark:text-gray-300">
-              <p>
-                Most rural transitions are not “sell it or shut it down”
-                decisions. They’re questions of time, structure, and alignment:
-                how to let an owner step back, an operator step up, and a local
-                lender stay in the deal without overextending their mandate.
-                TerraLuma’s model is built for that middle ground.
-              </p>
+            <ul role="list" className="mt-8 max-w-xl space-y-8 text-[#5a4a36]">
+              <li className="flex gap-x-3">
+                <MapIcon
+                  aria-hidden="true"
+                  className="mt-1 size-5 flex-none text-[#624315]"
+                />
+                <span>
+                  <strong className="font-semibold text-[#1b1308]">
+                    What we invest in.
+                  </strong>{" "}
+                  Rural land and development parcels, privately owned operating
+                  businesses, and flex / light industrial real estate — asset
+                  classes where patient capital and judgment create advantage.
+                </span>
+              </li>
 
-              <ul
-                role="list"
-                className="mt-8 space-y-8 text-[#5a4a36] dark:text-gray-300"
-              >
-                <li className="flex gap-x-3">
-                  <CloudArrowUpIcon
-                    aria-hidden="true"
-                    className="mt-1 size-5 flex-none text-tl-brown dark:text-tl-gold"
-                  />
-                  <span>
-                    <strong className="font-semibold text-[#21140a] dark:text-white">
-                      Aligned with local lenders.
-                    </strong>{" "}
-                    We structure our capital to sit beside community banks,
-                    preserving existing relationships while adding flexible
-                    equity or mezzanine layers to make transitions and expansion
-                    actually pencil.
-                  </span>
-                </li>
+              <li className="flex gap-x-3">
+                <BuildingStorefrontIcon
+                  aria-hidden="true"
+                  className="mt-1 size-5 flex-none text-[#624315]"
+                />
+                <span>
+                  <strong className="font-semibold text-[#1b1308]">
+                    How we create value.
+                  </strong>{" "}
+                  Disciplined acquisitions, operational improvement, and
+                  stewardship-led ownership — not financial engineering or
+                  speculation.
+                </span>
+              </li>
 
-                <li className="flex gap-x-3">
-                  <LockClosedIcon
-                    aria-hidden="true"
-                    className="mt-1 size-5 flex-none text-tl-brown dark:text-tl-gold"
-                  />
-                  <span>
-                    <strong className="font-semibold text-[#21140a] dark:text-white">
-                      Shared protections, not predatory terms.
-                    </strong>{" "}
-                    Governance, covenants, and collateral are designed to
-                    protect the business, the land, and the families involved —
-                    not just the last dollar of return.
-                  </span>
-                </li>
+              <li className="flex gap-x-3">
+                <ShieldCheckIcon
+                  aria-hidden="true"
+                  className="mt-1 size-5 flex-none text-[#624315]"
+                />
+                <span>
+                  <strong className="font-semibold text-[#1b1308]">
+                    How we partner.
+                  </strong>{" "}
+                  Flexible seller solutions (cash close, seller financing,
+                  creative structures) and aligned investor partnerships built
+                  on conservative underwriting and transparency.
+                </span>
+              </li>
+            </ul>
 
-                <li className="flex gap-x-3">
-                  <ServerIcon
-                    aria-hidden="true"
-                    className="mt-1 size-5 flex-none text-tl-brown dark:text-tl-gold"
-                  />
-                  <span>
-                    <strong className="font-semibold text-[#21140a] dark:text-white">
-                      Long-term orientation.
-                    </strong>{" "}
-                    We underwrite to staying power: durable cash flow,
-                    stewardship of working land, and continuity for employees
-                    and customers — not quick flips or financial engineering.
-                  </span>
-                </li>
-              </ul>
+            <p className="mt-8">
+              We avoid excessive leverage, short holding periods, and
+              speculative assumptions. Our goal is to own assets we understand,
+              improve what we control, and hold through cycles. Durability comes
+              first.
+            </p>
 
-              <p className="mt-8">
-                In practice, that means TerraLuma can help buy out a retiring
-                owner over time, recapitalize a strong operator for thoughtful
-                growth, or support homestead and rural land projects that banks
-                believe in but can’t fully finance on their own.
-              </p>
+            <h3 className="mt-16 text-2xl font-bold tracking-tight text-[#1b1308]">
+              A model designed to endure
+            </h3>
 
-              <h2 className="mt-16 text-2xl font-bold tracking-tight text-[#21140a] dark:text-white font-serif">
-                Where TerraLuma fits in a transaction
-              </h2>
-
-              <p className="mt-6">
-                We are not a replacement for local banks or a distant private
-                equity fund. We are a purpose-built partner that shares risk
-                with owners, operators, and lenders so that essential rural
-                businesses and land can change hands without leaving the people
-                and places they serve behind.
-              </p>
-            </div>
+            <p className="mt-6">
+              TerraLuma invests its own capital alongside partners, ensuring
+              incentives stay aligned. We deploy deliberately, focus on
+              fundamentals, and prioritize continuity — for owners, operators,
+              and communities connected to the assets we steward.
+            </p>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-function VideoBlock() {
-  return (
-    <div className="lg:sticky lg:top-4 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:overflow-hidden">
-      {/* Mobile iframe – full width, sm and below */}
-      <div className="md:hidden mt-8">
-        <div className="aspect-video w-full rounded-xl overflow-hidden bg-tl-black shadow-xl ring-1 ring-tl-brown/25 dark:bg-[#111111] dark:ring-tl-gold/25">
-          <iframe
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/Um63OQz3bjo"
-            title="YouTube video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </div>
-
-      {/* Desktop iframe – hidden until md+ */}
-      <div className="hidden md:block -mt-12 -ml-12 p-12">
-        <div className="aspect-video w-3xl max-w-none rounded-xl overflow-hidden bg-tl-black shadow-xl ring-1 ring-tl-brown/25 sm:w-228 dark:bg-[#111111] dark:ring-tl-gold/25">
-          <iframe
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/Um63OQz3bjo"
-            title="YouTube video"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }
