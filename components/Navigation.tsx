@@ -23,6 +23,8 @@ import {
   BuildingStorefrontIcon,
 } from "@heroicons/react/20/solid";
 
+// COMMENTED OUT: Dropdown data structures (kept for potential restoration)
+/*
 const products = [
   {
     name: "Private Businesses",
@@ -52,6 +54,7 @@ const callsToAction = [
   { name: "Sell Land", href: "/assets-we-buy", icon: ArrowRightIcon },
   { name: "Submit Property", href: "/assets-we-buy", icon: ArrowRightIcon },
 ];
+*/
 
 function TerraLumaLogo() {
   return (
@@ -102,6 +105,8 @@ export default function Example() {
 
         {/* DESKTOP NAV */}
         <PopoverGroup className="hidden lg:flex lg:gap-x-10">
+          {/* COMMENTED OUT: Assets We Buy Dropdown (desktop) - kept for potential restoration */}
+          {/*
           <Popover>
             <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-white/80 hover:text-tl-gold">
               Assets We Buy
@@ -168,6 +173,15 @@ export default function Example() {
               </div>
             </PopoverPanel>
           </Popover>
+          */}
+
+          {/* Direct link to Assets We Buy */}
+          <Link
+            href="/assets-we-buy"
+            className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
+          >
+            Assets We Buy
+          </Link>
 
           <Link
             href="/testimonials"
@@ -235,7 +249,8 @@ export default function Example() {
           <div className="mt-8 flow-root">
             <div className="-my-6 divide-y divide-white/10">
               <div className="space-y-2 py-6">
-                {/* Assets We Buy (mobile dropdown mirrors desktop) */}
+                {/* COMMENTED OUT: Assets We Buy (mobile dropdown) - kept for potential restoration */}
+                {/*
                 <Disclosure as="div" className="-mx-3">
                   <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
                     Assets We Buy
@@ -271,6 +286,16 @@ export default function Example() {
                     ))}
                   </DisclosurePanel>
                 </Disclosure>
+                */}
+
+                {/* Direct link to Assets We Buy (mobile) */}
+                <Link
+                  href="/assets-we-buy"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                >
+                  Assets We Buy
+                </Link>
 
                 {/* ✅ EXACT DESKTOP LINKS + ORDER */}
                 <Link
