@@ -1,12 +1,66 @@
+"use client";
+
 import {
   MapIcon,
   BuildingStorefrontIcon,
   ShieldCheckIcon,
 } from "@heroicons/react/20/solid";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 export default function OurModal() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.0, 0, 0.2, 1] as const,
+      },
+    },
+  };
+
+  const quoteVariants = {
+    hidden: { opacity: 0, x: -30 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.0, 0, 0.2, 1] as const,
+      },
+    },
+  };
+
+  const listItemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.0, 0, 0.2, 1] as const,
+      },
+    },
+  };
   return (
-    <section className="relative isolate overflow-hidden bg-[#f9f5ee] py-24 sm:py-32">
+    <section ref={ref} className="relative isolate overflow-hidden bg-[#f9f5ee] py-24 sm:py-32">
       {/* Warm motif blob */}
       <div
         aria-hidden="true"
@@ -23,21 +77,35 @@ export default function OurModal() {
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Top header */}
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <p className="text-base/7 font-semibold text-[#624315]">
+        <motion.div
+          className="mx-auto max-w-2xl lg:mx-0"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.p
+            className="text-base/7 font-semibold text-[#624315]"
+            variants={itemVariants}
+          >
             TerraLuma Capital
-          </p>
+          </motion.p>
 
-          <h2 className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-[#1b1308] sm:text-5xl">
+          <motion.h2
+            className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-[#1b1308] sm:text-5xl"
+            variants={itemVariants}
+          >
             Our investment model is built for durability.
-          </h2>
+          </motion.h2>
 
-          <p className="mt-6 text-xl/8 text-[#5a4a36]">
+          <motion.p
+            className="mt-6 text-xl/8 text-[#5a4a36]"
+            variants={itemVariants}
+          >
             We acquire real, understandable assets at attractive valuations,
             improve performance through hands-on ownership, and hold for
             long-term value — not short-term exits.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:mt-10 lg:max-w-none lg:grid-cols-12">
           {/* Sticky quote */}
@@ -65,12 +133,17 @@ export default function OurModal() {
             </svg>
 
             {/* sticky container */}
-            <div className="lg:sticky lg:top-24">
+            <motion.div
+              className="lg:sticky lg:top-24"
+              variants={quoteVariants}
+              initial="hidden"
+              animate={isInView ? "visible" : "hidden"}
+            >
               <figure className="border-l border-[#624315] pl-8">
                 <blockquote className="text-xl/8 font-semibold tracking-tight text-[#1b1308]">
                   <p>
-                    “We invest and operate with purpose — building durable value
-                    for people, capital, and communities over the long term.”
+                    "We invest and operate with purpose — building durable value
+                    for people, capital, and communities over the long term."
                   </p>
                 </blockquote>
 
@@ -86,21 +159,30 @@ export default function OurModal() {
                   </div>
                 </figcaption>
               </figure>
-            </div>
+            </motion.div>
           </div>
 
           {/* Body content */}
-          <div className="max-w-xl text-base/7 text-[#5a4a36] lg:col-span-7">
-            <p>
+          <motion.div
+            className="max-w-xl text-base/7 text-[#5a4a36] lg:col-span-7"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            <motion.p variants={itemVariants}>
               TerraLuma Capital is a long-term investment firm focused on
               acquiring and stewarding tangible, cash-generating real assets
               across land, operating businesses, and select real estate. We
               partner with sellers, operators, and accredited investors who
               value permanence, alignment, and disciplined execution.
-            </p>
+            </motion.p>
 
-            <ul role="list" className="mt-8 max-w-xl space-y-8 text-[#5a4a36]">
-              <li className="flex gap-x-3">
+            <motion.ul
+              role="list"
+              className="mt-8 max-w-xl space-y-8 text-[#5a4a36]"
+              variants={containerVariants}
+            >
+              <motion.li className="flex gap-x-3" variants={listItemVariants}>
                 <MapIcon
                   aria-hidden="true"
                   className="mt-1 size-5 flex-none text-[#624315]"
@@ -113,9 +195,9 @@ export default function OurModal() {
                   businesses, and flex / light industrial real estate — asset
                   classes where patient capital and judgment create advantage.
                 </span>
-              </li>
+              </motion.li>
 
-              <li className="flex gap-x-3">
+              <motion.li className="flex gap-x-3" variants={listItemVariants}>
                 <BuildingStorefrontIcon
                   aria-hidden="true"
                   className="mt-1 size-5 flex-none text-[#624315]"
@@ -128,9 +210,9 @@ export default function OurModal() {
                   stewardship-led ownership — not financial engineering or
                   speculation.
                 </span>
-              </li>
+              </motion.li>
 
-              <li className="flex gap-x-3">
+              <motion.li className="flex gap-x-3" variants={listItemVariants}>
                 <ShieldCheckIcon
                   aria-hidden="true"
                   className="mt-1 size-5 flex-none text-[#624315]"
@@ -143,27 +225,30 @@ export default function OurModal() {
                   creative structures) and aligned investor partnerships built
                   on conservative underwriting and transparency.
                 </span>
-              </li>
-            </ul>
+              </motion.li>
+            </motion.ul>
 
-            <p className="mt-8">
+            <motion.p className="mt-8" variants={itemVariants}>
               We avoid excessive leverage, short holding periods, and
               speculative assumptions. Our goal is to own assets we understand,
               improve what we control, and hold through cycles. Durability comes
               first.
-            </p>
+            </motion.p>
 
-            <h3 className="mt-16 text-2xl font-bold tracking-tight text-[#1b1308]">
+            <motion.h3
+              className="mt-16 text-2xl font-bold tracking-tight text-[#1b1308]"
+              variants={itemVariants}
+            >
               A model designed to endure
-            </h3>
+            </motion.h3>
 
-            <p className="mt-6">
+            <motion.p className="mt-6" variants={itemVariants}>
               TerraLuma invests its own capital alongside partners, ensuring
               incentives stay aligned. We deploy deliberately, focus on
               fundamentals, and prioritize continuity — for owners, operators,
               and communities connected to the assets we steward.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,9 +1,14 @@
+"use client";
+
 import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 export const faqs = [
   {
@@ -98,21 +103,60 @@ export const faqs = [
 ];
 
 export default function FAQ() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.0, 0, 0.2, 1],
+      },
+    },
+  };
+
   return (
-    <section className="bg-[#f9f5ee]">
+    <section ref={ref} className="bg-[#f9f5ee]">
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
         <div className="mx-auto max-w-4xl">
-          <h2 className="font-serif text-4xl font-semibold tracking-tight text-[#1b1308] sm:text-5xl">
+          <motion.h2
+            className="font-serif text-4xl font-semibold tracking-tight text-[#1b1308] sm:text-5xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.6 }}
+          >
             Frequently asked questions
-          </h2>
+          </motion.h2>
 
-          <dl className="mt-16 divide-y divide-[#e2d4c1]">
+          <motion.dl
+            className="mt-16 divide-y divide-[#e2d4c1]"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
             {faqs.map((faq) => (
-              <Disclosure
+              <motion.div
                 key={faq.question}
-                as="div"
-                className="py-6 first:pt-0 last:pb-0"
+                variants={itemVariants}
               >
+                <Disclosure
+                  as="div"
+                  className="py-6 first:pt-0 last:pb-0"
+                >
                 <dt>
                   <DisclosureButton className="group flex w-full items-start justify-between text-left">
                     <span className="text-base leading-7 font-semibold text-[#1b1308]">
@@ -138,8 +182,9 @@ export default function FAQ() {
                   </p>
                 </DisclosurePanel>
               </Disclosure>
+              </motion.div>
             ))}
-          </dl>
+          </motion.dl>
         </div>
       </div>
     </section>

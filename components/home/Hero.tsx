@@ -1,5 +1,42 @@
 "use client";
 
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.0, 0, 0.2, 1] as const,
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      duration: 0.6,
+      ease: [0.0, 0, 0.2, 1] as const,
+    },
+  },
+};
+
 export default function HomeHero() {
   return (
     <div className="bg-[#f9f5ee] text-[#1b1308]">
@@ -61,23 +98,40 @@ export default function HomeHero() {
           <div className="mx-auto max-w-7xl px-6 pt-28 pb-24 sm:pt-40 sm:pb-28 lg:px-8 lg:pt-28">
             <div className="mx-auto max-w-2xl gap-x-14 lg:mx-0 lg:flex lg:max-w-none lg:items-center">
               {/* Copy */}
-              <div className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl">
-                <p className="font-serif text-sm font-semibold tracking-wide text-[#624315]">
+              <motion.div
+                className="relative w-full lg:max-w-xl lg:shrink-0 xl:max-w-2xl"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <motion.p
+                  className="font-serif text-sm font-semibold tracking-wide text-[#624315]"
+                  variants={itemVariants}
+                >
                   TerraLuma Capital
-                </p>
+                </motion.p>
 
-                <h1 className="mt-3 font-serif text-5xl font-semibold tracking-tight text-[#1b1308] sm:text-7xl">
+                <motion.h1
+                  className="mt-3 font-serif text-5xl font-semibold tracking-tight text-[#1b1308] sm:text-7xl"
+                  variants={itemVariants}
+                >
                   Invest and serve with purpose.
-                </h1>
+                </motion.h1>
 
-                <p className="mt-7 text-lg font-medium leading-8 text-[#5a4a36] sm:text-xl">
+                <motion.p
+                  className="mt-7 text-lg font-medium leading-8 text-[#5a4a36] sm:text-xl"
+                  variants={itemVariants}
+                >
                   TerraLuma Capital specializes in acquiring real estate and
                   privately owned companies—alternative assets sourced directly
                   from owners and structured for long-term value creation.
-                </p>
+                </motion.p>
 
                 {/* Buttons (OLD STYLE) */}
-                <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-x-6">
+                <motion.div
+                  className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-x-6"
+                  variants={itemVariants}
+                >
                   <a
                     href="/contact"
                     className="rounded-md bg-[#624315] px-3.5 py-2.5 text-sm font-semibold text-[#FFE898] shadow-xs hover:bg-[#4f3511] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#624315]"
@@ -91,67 +145,84 @@ export default function HomeHero() {
                   >
                     View assets we buy <span aria-hidden="true">→</span>
                   </a>
-                </div>
+                </motion.div>
 
-                <p className="mt-6 text-xs leading-5 text-black/55">
+                <motion.p
+                  className="mt-6 text-xs leading-5 text-black/55"
+                  variants={itemVariants}
+                >
                   Accredited investors only. Testimonials are not indicative of
                   future results.
-                </p>
-              </div>
+                </motion.p>
+              </motion.div>
 
               {/* Image collage (UNCHANGED from your current version) */}
-              <div className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0">
-                <div className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-0 xl:pt-80">
-                  <div className="relative">
+              <motion.div
+                className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <motion.div
+                  className="ml-auto w-44 flex-none space-y-8 pt-32 sm:ml-0 sm:pt-80 lg:order-last lg:pt-36 xl:order-0 xl:pt-80"
+                  variants={containerVariants}
+                >
+                  <motion.div className="relative" variants={imageVariants}>
                     <img
                       alt="Rural land and stewardship"
                       src="/images/stock/1.png"
                       className="aspect-2/3 w-full rounded-2xl bg-black/5 object-cover shadow-lg"
                     />
                     <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-black/10 ring-inset" />
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
 
-                <div className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36">
-                  <div className="relative">
+                <motion.div
+                  className="mr-auto w-44 flex-none space-y-8 sm:mr-0 sm:pt-52 lg:pt-36"
+                  variants={containerVariants}
+                >
+                  <motion.div className="relative" variants={imageVariants}>
                     <img
                       alt="Essential local businesses"
                       src="/images/land-business/5.png"
                       className="aspect-2/3 w-full rounded-2xl bg-black/5 object-cover shadow-lg"
                     />
                     <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-black/10 ring-inset" />
-                  </div>
+                  </motion.div>
 
-                  <div className="relative">
+                  <motion.div className="relative" variants={imageVariants}>
                     <img
                       alt="Flex and light industrial real estate"
                       src="/images/land-business/6.png"
                       className="aspect-2/3 w-full rounded-2xl bg-black/5 object-cover shadow-lg"
                     />
                     <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-black/10 ring-inset" />
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
 
-                <div className="w-44 flex-none space-y-8 pt-32 sm:pt-0">
-                  <div className="relative">
+                <motion.div
+                  className="w-44 flex-none space-y-8 pt-32 sm:pt-0"
+                  variants={containerVariants}
+                >
+                  <motion.div className="relative" variants={imageVariants}>
                     <img
                       alt="Southeastern growth corridors"
                       src="/images/stock/2.png"
                       className="aspect-2/3 w-full rounded-2xl bg-black/5 object-cover shadow-lg"
                     />
                     <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-black/10 ring-inset" />
-                  </div>
+                  </motion.div>
 
-                  <div className="relative">
+                  <motion.div className="relative" variants={imageVariants}>
                     <img
                       alt="Long-term, real asset investing"
                       src="/images/land-business/1.png"
                       className="aspect-2/3 w-full rounded-2xl bg-black/5 object-cover shadow-lg"
                     />
                     <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-black/10 ring-inset" />
-                  </div>
-                </div>
-              </div>
+                  </motion.div>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
 
