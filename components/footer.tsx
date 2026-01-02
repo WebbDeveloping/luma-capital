@@ -1,23 +1,12 @@
 import Link from "next/link";
 
 const navigation = {
-  explore: [
+  main: [
     { name: "Assets We Buy", href: "/assets-we-buy" },
     { name: "Opportunity", href: "/opportunity" },
     { name: "Investor Testimonials", href: "/testimonials" },
-    { name: "FAQ’s", href: "/faq" },
-  ],
-  assets: [
-    { name: "Private Businesses", href: "/assets-we-buy" },
-    { name: "Land", href: "/assets-we-buy" },
-    { name: "Flex / Light Industrial", href: "/assets-we-buy" },
-    { name: "Submit Property", href: "/assets-we-buy" },
-  ],
-  contact: [{ name: "Contact", href: "#contact" }],
-  legal: [
-    { name: "Terms of service", href: "/terms" },
-    { name: "Privacy policy", href: "/privacy" },
-    { name: "Disclosures", href: "/disclosures" },
+    { name: "FAQ's", href: "/faq" },
+    { name: "Contact", href: "/contact" },
   ],
   social: [
     {
@@ -84,128 +73,28 @@ const navigation = {
   ],
 };
 
-function TerraLumaFooterLogo() {
-  return (
-    <div className="flex items-center gap-2">
-      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-tl-brown text-tl-gold text-sm font-semibold">
-        TL
-      </div>
-      <div className="flex flex-col">
-        <span className="text-xs font-semibold tracking-[0.22em] uppercase text-tl-gold">
-          TerraLuma
-        </span>
-        <span className="text-[11px] text-white/70">Capital</span>
-      </div>
-    </div>
-  );
-}
-
 export default function Footer() {
   return (
-    <footer className="bg-tl-black text-white">
-      <div className="mx-auto max-w-7xl px-6 pt-16 pb-8 sm:pt-24 lg:px-8 lg:pt-32">
-        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
-          {/* Brand + summary */}
-          <div className="space-y-8">
-            <TerraLumaFooterLogo />
-            <p className="text-sm/6 text-balance text-white/70">
-              Purpose-built capital for rural businesses and land development,
-              with a focus on stewardship, long-term alignment, and resilient
-              local economies.
-            </p>
-            <div className="flex gap-x-6">
-              {navigation.social.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-white/40 hover:text-tl-gold"
-                >
-                  <span className="sr-only">{item.name}</span>
-                  <item.icon aria-hidden="true" className="size-5" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Link columns */}
-          <div className="mt-16 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm/6 font-semibold text-white">Explore</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.explore.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm/6 text-white/60 hover:text-tl-gold"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm/6 font-semibold text-white">Contact</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.contact.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className="text-sm/6 text-white/60 hover:text-tl-gold"
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="md:grid md:grid-cols-2 md:gap-8">
-              <div>
-                <h3 className="text-sm/6 font-semibold text-white">Assets</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.assets.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm/6 text-white/60 hover:text-tl-gold"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-10 md:mt-0">
-                <h3 className="text-sm/6 font-semibold text-white">Legal</h3>
-                <ul role="list" className="mt-6 space-y-4">
-                  {navigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <Link
-                        href={item.href}
-                        className="text-sm/6 text-white/60 hover:text-tl-gold"
-                      >
-                        {item.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+    <footer className="bg-tl-black">
+      <div className="mx-auto max-w-7xl overflow-hidden px-6 py-20 sm:py-24 lg:px-8">
+        <nav aria-label="Footer" className="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6">
+          {navigation.main.map((item) => (
+            <Link key={item.name} href={item.href} className="text-white/60 hover:text-tl-gold">
+              {item.name}
+            </Link>
+          ))}
+        </nav>
+        <div className="mt-16 flex justify-center gap-x-10">
+          {navigation.social.map((item) => (
+            <a key={item.name} href={item.href} className="text-white/60 hover:text-tl-gold">
+              <span className="sr-only">{item.name}</span>
+              <item.icon aria-hidden="true" className="size-6" />
+            </a>
+          ))}
         </div>
-
-        {/* Bottom bar */}
-        <div className="mt-16 border-t border-white/10 pt-8 sm:mt-20 lg:mt-24">
-          <p className="text-sm/6 text-white/50">
-            &copy; {new Date().getFullYear()} TerraLuma Capital. All rights
-            reserved.
-          </p>
-        </div>
+        <p className="mt-10 text-center text-sm/6 text-white/60">
+          &copy; {new Date().getFullYear()} TerraLuma Capital. All rights reserved.
+        </p>
       </div>
     </footer>
   );

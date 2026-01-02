@@ -6,9 +6,6 @@ import {
   DisclosurePanel,
 } from "@headlessui/react";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
 
 export const faqs = [
   {
@@ -103,85 +100,48 @@ export const faqs = [
 ];
 
 export default function FAQ() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.0, 0, 0.2, 1],
-      },
-    },
-  };
-
   return (
-    <section ref={ref} className="bg-[#f9f5ee]">
-      <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8 lg:py-40">
+    <section className="bg-[#f9f5ee]">
+      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-20 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <motion.h2
-            className="font-serif text-4xl font-semibold tracking-tight text-[#1b1308] sm:text-5xl"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.6 }}
-          >
+          <h2 className="font-serif text-3xl font-semibold tracking-tight text-[#1b1308] sm:text-4xl">
             Frequently asked questions
-          </motion.h2>
+          </h2>
 
-          <motion.dl
-            className="mt-16 divide-y divide-[#e2d4c1]"
-            variants={containerVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-          >
+          <dl className="mt-12 divide-y divide-[#e2d4c1]">
             {faqs.map((faq) => (
-              <motion.div key={faq.question} variants={itemVariants}>
-                <Disclosure
-                  as="div"
-                  className="py-6 first:pt-0 last:pb-0"
-                >
-                  <dt>
-                    <DisclosureButton className="group flex w-full items-start justify-between gap-x-6 text-left">
-                      <span className="text-base leading-7 font-semibold text-[#1b1308]">
-                        {faq.question}
-                      </span>
+              <Disclosure
+                key={faq.question}
+                as="div"
+                className="py-6 first:pt-0 last:pb-0"
+              >
+                <dt>
+                  <DisclosureButton className="group flex w-full items-start justify-between gap-x-6 text-left">
+                    <span className="text-base leading-7 font-semibold text-[#1b1308]">
+                      {faq.question}
+                    </span>
 
-                      <span className="flex h-7 items-center text-[#624315]">
-                        <PlusSmallIcon
-                          aria-hidden="true"
-                          className="size-6 group-data-open:hidden"
-                        />
-                        <MinusSmallIcon
-                          aria-hidden="true"
-                          className="size-6 group-not-data-open:hidden"
-                        />
-                      </span>
-                    </DisclosureButton>
-                  </dt>
+                    <span className="flex h-7 items-center text-[#624315]">
+                      <PlusSmallIcon
+                        aria-hidden="true"
+                        className="size-6 group-data-open:hidden"
+                      />
+                      <MinusSmallIcon
+                        aria-hidden="true"
+                        className="size-6 group-not-data-open:hidden"
+                      />
+                    </span>
+                  </DisclosureButton>
+                </dt>
 
-                  <DisclosurePanel as="dd" className="mt-3 pr-0 sm:pr-12">
-                    <p className="text-base leading-7 text-[#1b1308]/70">
-                      {faq.answer}
-                    </p>
-                  </DisclosurePanel>
-                </Disclosure>
-              </motion.div>
+                <DisclosurePanel as="dd" className="mt-3 pr-0 sm:pr-12">
+                  <p className="text-base leading-7 text-[#1b1308]/70">
+                    {faq.answer}
+                  </p>
+                </DisclosurePanel>
+              </Disclosure>
             ))}
-          </motion.dl>
+          </dl>
         </div>
       </div>
     </section>
