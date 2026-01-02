@@ -1,3 +1,9 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
 const links = [
   { name: "Private Businesses", href: "#businesses" },
   { name: "Land", href: "#land" },
@@ -6,8 +12,35 @@ const links = [
 ];
 
 export default function AssetsWeBuyHero() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.0, 0, 0.2, 1],
+      },
+    },
+  };
+
   return (
     <section
+      ref={ref}
       className="relative isolate overflow-hidden min-h-[70vh]"
       aria-label="Assets we buy hero"
     >
@@ -43,22 +76,39 @@ export default function AssetsWeBuyHero() {
 
       {/* Content */}
       <div className="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center font-serif">
-          <p className="text-sm font-semibold tracking-wide text-[#FFE898]">
+        <motion.div
+          className="mx-auto max-w-3xl text-center font-serif"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.p
+            className="text-sm font-semibold tracking-wide text-[#FFE898]"
+            variants={itemVariants}
+          >
             TerraLuma Capital
-          </p>
+          </motion.p>
 
-          <h1 className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-6xl">
+          <motion.h1
+            className="mt-3 text-4xl font-semibold tracking-tight text-white sm:text-6xl"
+            variants={itemVariants}
+          >
             Assets We Buy
-          </h1>
+          </motion.h1>
 
-          <p className="mt-6 text-lg text-[#f3eadb] sm:text-xl/8">
+          <motion.p
+            className="mt-6 text-lg text-[#f3eadb] sm:text-xl/8"
+            variants={itemVariants}
+          >
             TerraLuma Capital buys assets in three core categories: Private
             Businesses, Land, and Flex / Light Industrial Real Estate — with
             attractive, actionable options for owners ready to transact.
-          </p>
+          </motion.p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-x-6 font-sans">
+          <motion.div
+            className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-x-6 font-sans"
+            variants={itemVariants}
+          >
             <a
               href="#contact"
               className="rounded-md bg-[#FFE898] px-4 py-2.5 text-sm font-semibold text-[#20140a] shadow-sm hover:bg-[#f7e3a8]"
@@ -72,10 +122,13 @@ export default function AssetsWeBuyHero() {
             >
               See what we acquire →
             </a>
-          </div>
+          </motion.div>
 
           {/* Quick links row */}
-          <div className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 font-sans text-sm font-semibold text-[#f3eadb]">
+          <motion.div
+            className="mt-12 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 font-sans text-sm font-semibold text-[#f3eadb]"
+            variants={itemVariants}
+          >
             {links.map((link) => (
               <a
                 key={link.name}
@@ -90,8 +143,8 @@ export default function AssetsWeBuyHero() {
                 </span>
               </a>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

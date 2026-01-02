@@ -149,39 +149,36 @@ export default function FAQ() {
             animate={isInView ? "visible" : "hidden"}
           >
             {faqs.map((faq) => (
-              <motion.div
-                key={faq.question}
-                variants={itemVariants}
-              >
+              <motion.div key={faq.question} variants={itemVariants}>
                 <Disclosure
                   as="div"
                   className="py-6 first:pt-0 last:pb-0"
                 >
-                <dt>
-                  <DisclosureButton className="group flex w-full items-start justify-between text-left">
-                    <span className="text-base leading-7 font-semibold text-[#1b1308]">
-                      {faq.question}
-                    </span>
+                  <dt>
+                    <DisclosureButton className="group flex w-full items-start justify-between gap-x-6 text-left">
+                      <span className="text-base leading-7 font-semibold text-[#1b1308]">
+                        {faq.question}
+                      </span>
 
-                    <span className="ml-6 flex h-7 items-center text-[#624315]">
-                      <PlusSmallIcon
-                        aria-hidden="true"
-                        className="size-6 group-data-open:hidden"
-                      />
-                      <MinusSmallIcon
-                        aria-hidden="true"
-                        className="size-6 group-not-data-open:hidden"
-                      />
-                    </span>
-                  </DisclosureButton>
-                </dt>
+                      <span className="flex h-7 items-center text-[#624315]">
+                        <PlusSmallIcon
+                          aria-hidden="true"
+                          className="size-6 group-data-open:hidden"
+                        />
+                        <MinusSmallIcon
+                          aria-hidden="true"
+                          className="size-6 group-not-data-open:hidden"
+                        />
+                      </span>
+                    </DisclosureButton>
+                  </dt>
 
-                <DisclosurePanel as="dd" className="mt-3 pr-12">
-                  <p className="text-base leading-7 text-[#1b1308]/70">
-                    {faq.answer}
-                  </p>
-                </DisclosurePanel>
-              </Disclosure>
+                  <DisclosurePanel as="dd" className="mt-3 pr-0 sm:pr-12">
+                    <p className="text-base leading-7 text-[#1b1308]/70">
+                      {faq.answer}
+                    </p>
+                  </DisclosurePanel>
+                </Disclosure>
               </motion.div>
             ))}
           </motion.dl>

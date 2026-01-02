@@ -1,42 +1,111 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+
 export default function FlexIndustrialBlock() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.0, 0, 0.2, 1],
+      },
+    },
+  };
+
+  const imageVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.0, 0, 0.2, 1],
+      },
+    },
+  };
+
   return (
-    <section className="relative isolate overflow-hidden bg-[#e8dbc7] py-24 sm:py-32 dark:bg-[#1F1A14]">
+    <section
+      ref={ref}
+      className="relative isolate overflow-hidden bg-[#e8dbc7] py-24 sm:py-32 dark:bg-[#1F1A14]"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center font-serif">
-          <h2 className="text-base/7 font-semibold text-tl-brown dark:text-tl-gold">
+        <motion.div
+          className="mx-auto max-w-2xl text-center font-serif"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.h2
+            className="text-base/7 font-semibold text-tl-brown dark:text-tl-gold"
+            variants={itemVariants}
+          >
             Flex / Light Industrial Real Estate
-          </h2>
+          </motion.h2>
 
-          <p className="mt-2 font-serif text-4xl font-semibold tracking-tight text-[#21140a] sm:text-5xl lg:text-balance dark:text-white">
+          <motion.p
+            className="mt-2 font-serif text-4xl font-semibold tracking-tight text-[#21140a] sm:text-5xl lg:text-balance dark:text-white"
+            variants={itemVariants}
+          >
             Commercial Properties Built for Essential Work
-          </p>
+          </motion.p>
 
-          <p className="mt-6 text-lg/8 text-[#5a4a36] dark:text-gray-300 font-sans">
+          <motion.p
+            className="mt-6 text-lg/8 text-[#5a4a36] dark:text-gray-300 font-sans"
+            variants={itemVariants}
+          >
             We acquire flex and light industrial properties that support
             blue-collar and service-driven businesses in growing regional
             markets.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <section className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16">
+        <motion.section
+          className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           {/* Copy */}
-          <div className="lg:pr-8 font-serif">
+          <motion.div className="lg:pr-8 font-serif" variants={itemVariants}>
             <h3 className="text-2xl font-semibold tracking-tight text-[#21140a] dark:text-white">
               What we look for
             </h3>
 
-            <ul className="mt-6 space-y-4 text-base/7 text-[#5a4a36] dark:text-gray-400 font-sans">
-              <li className="flex gap-x-3">
+            <motion.ul
+              className="mt-6 space-y-4 text-base/7 text-[#5a4a36] dark:text-gray-400 font-sans"
+              variants={containerVariants}
+            >
+              <motion.li className="flex gap-x-3" variants={itemVariants}>
                 <span className="mt-2 size-1.5 flex-none rounded-full bg-tl-brown dark:bg-tl-gold" />
                 <span>
                   <strong className="font-semibold text-[#21140a] dark:text-white">
                     $500,000–$5 million purchase range
                   </strong>
                 </span>
-              </li>
+              </motion.li>
 
-              <li className="flex gap-x-3">
+              <motion.li className="flex gap-x-3" variants={itemVariants}>
                 <span className="mt-2 size-1.5 flex-none rounded-full bg-tl-brown dark:bg-tl-gold" />
                 <span>
                   <strong className="font-semibold text-[#21140a] dark:text-white">
@@ -46,26 +115,31 @@ export default function FlexIndustrialBlock() {
                     (HVAC, plumbing, electrical, logistics)
                   </span>
                 </span>
-              </li>
+              </motion.li>
 
-              <li className="flex gap-x-3">
+              <motion.li className="flex gap-x-3" variants={itemVariants}>
                 <span className="mt-2 size-1.5 flex-none rounded-full bg-tl-brown dark:bg-tl-gold" />
                 <span>
                   <strong className="font-semibold text-[#21140a] dark:text-white">
                     Markets with population and business growth
                   </strong>
                 </span>
-              </li>
-            </ul>
+              </motion.li>
+            </motion.ul>
 
             <p className="mt-8 text-base/7 text-[#5a4a36] dark:text-gray-300 font-sans">
               These properties provide reliable utility, durable demand, and
               opportunities for responsible improvement over time.
             </p>
-          </div>
+          </motion.div>
 
-          {/* Image grid — reused (unchanged) */}
-          <div className="pt-16 lg:row-span-2 lg:-mr-16 xl:mr-auto">
+          {/* Image grid */}
+          <motion.div
+            className="pt-16 lg:row-span-2 lg:-mr-16 xl:mr-auto"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
             <div className="-mx-8 grid grid-cols-2 gap-4 sm:-mx-16 sm:grid-cols-4 lg:mx-0 lg:grid-cols-2 xl:gap-8">
               {[
                 "/images/land-business/6.png",
@@ -73,24 +147,29 @@ export default function FlexIndustrialBlock() {
                 "/images/land-business/3.png",
                 "/images/land-business/5.png",
               ].map((src, i) => (
-                <div
+                <motion.div
                   key={i}
                   className={`aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 dark:outline-white/10 ${
                     i % 2 === 1 ? "lg:-mt-40 -mt-8" : ""
                   }`}
+                  variants={imageVariants}
+                  whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                 >
                   <img
                     alt=""
                     src={`${src}?&auto=format&fit=crop&w=560&h=560&q=90`}
                     className="block size-full object-cover"
                   />
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* At a glance */}
-          <div className="max-lg:mt-16 lg:col-span-1">
+          <motion.div
+            className="max-lg:mt-16 lg:col-span-1"
+            variants={itemVariants}
+          >
             <p className="text-base/7 font-semibold text-tl-brown dark:text-tl-gold font-serif">
               At a glance
             </p>
@@ -103,8 +182,8 @@ export default function FlexIndustrialBlock() {
               <Stat label="Tenant profile" value="Trades" />
               <Stat label="Market focus" value="Growth" />
             </dl>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
       </div>
     </section>
   );

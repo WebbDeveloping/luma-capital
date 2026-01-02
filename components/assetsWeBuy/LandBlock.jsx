@@ -1,9 +1,14 @@
+"use client";
+
 import {
   MapIcon,
   ArrowTrendingDownIcon,
   BoltIcon,
   BeakerIcon,
 } from "@heroicons/react/20/solid";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 const criteria = [
   {
@@ -36,12 +41,59 @@ const criteria = [
 ];
 
 export default function LandBlock() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.0, 0, 0.2, 1],
+      },
+    },
+  };
+
+  const criteriaVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.0, 0, 0.2, 1],
+      },
+    },
+  };
+
   return (
-    <section id="land" className="relative isolate bg-[#f9f5ee] py-24 sm:py-32">
+    <section
+      ref={ref}
+      id="land"
+      className="relative isolate bg-[#f9f5ee] py-24 sm:py-32"
+    >
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
           {/* LEFT: Sticky visual */}
-          <div className="lg:sticky lg:top-10">
+          <motion.div
+            className="lg:sticky lg:top-10"
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.2, ease: [0.0, 0, 0.2, 1] }}
+          >
             <div className="relative isolate overflow-hidden rounded-3xl bg-[#20140a] px-6 pt-10 sm:px-8 sm:pt-12 shadow-xl ring-1 ring-black/10">
               {/* Warm glow */}
               <div
@@ -85,25 +137,48 @@ export default function LandBlock() {
                 className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-black/10 ring-inset"
               />
             </div>
-          </div>
+          </motion.div>
 
           {/* RIGHT: Content */}
-          <div className="font-serif">
-            <p className="text-base/7 font-semibold text-[#624315]">Land</p>
+          <motion.div
+            className="font-serif"
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            <motion.p
+              className="text-base/7 font-semibold text-[#624315]"
+              variants={itemVariants}
+            >
+              Land
+            </motion.p>
 
-            <h2 className="mt-2 font-serif text-4xl font-semibold text-pretty text-[#21140a] sm:text-5xl">
+            <motion.h2
+              className="mt-2 font-serif text-4xl font-semibold text-pretty text-[#21140a] sm:text-5xl"
+              variants={itemVariants}
+            >
               We Acquire Rural Land with Long-Term Potential.
-            </h2>
+            </motion.h2>
 
-            <p className="mt-6 text-lg/8 text-[#4f4537]">
+            <motion.p
+              className="mt-6 text-lg/8 text-[#4f4537]"
+              variants={itemVariants}
+            >
               We acquire rural land and development parcels that meet clear
               investment and stewardship criteria—favoring usable land with
               strong fundamentals and responsible upside.
-            </p>
+            </motion.p>
 
-            <dl className="mt-10 space-y-8 text-base/7 text-[#5a4a36]">
+            <motion.dl
+              className="mt-10 space-y-8 text-base/7 text-[#5a4a36]"
+              variants={containerVariants}
+            >
               {criteria.map((item) => (
-                <div key={item.name} className="relative pl-9">
+                <motion.div
+                  key={item.name}
+                  className="relative pl-9"
+                  variants={criteriaVariants}
+                >
                   <dt className="inline font-semibold text-[#21140a]">
                     <item.icon
                       aria-hidden="true"
@@ -112,16 +187,19 @@ export default function LandBlock() {
                     {item.name}
                   </dt>{" "}
                   <dd className="inline">{item.description}</dd>
-                </div>
+                </motion.div>
               ))}
-            </dl>
+            </motion.dl>
 
-            <p className="mt-10 text-lg/8 text-[#4f4537]">
-              Whether you’re considering selling now or simply exploring
+            <motion.p
+              className="mt-10 text-lg/8 text-[#4f4537]"
+              variants={itemVariants}
+            >
+              Whether you're considering selling now or simply exploring
               options, we make land transitions straightforward and
               professional.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
       </div>
     </section>

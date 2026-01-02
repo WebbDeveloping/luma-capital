@@ -9,6 +9,9 @@ export default function SimpleHero() {
 
   return (
     <div className="relative isolate overflow-hidden px-6 py-24 sm:py-32 lg:px-8">
+      {/* Dark background layer - shows when image fades */}
+      <div className="absolute inset-0 -z-30 bg-[#20140a]" />
+      
       {/* Background image + dark overlay */}
       <motion.div 
         className="absolute inset-0 -z-20"

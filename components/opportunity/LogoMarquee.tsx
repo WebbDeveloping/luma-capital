@@ -5,27 +5,27 @@ import { motion } from "framer-motion";
 const logos = [
   {
     name: "Logo 1",
-    src: "https://tailwindcss.com/plus-assets/img/logos/158x48/transistor-logo-gray-900.svg",
+    src: "/images/logos/logo-1.svg",
     alt: "Logo 1",
   },
   {
     name: "Logo 2",
-    src: "https://tailwindcss.com/plus-assets/img/logos/158x48/reform-logo-gray-900.svg",
+    src: "/images/logos/logo-2.svg",
     alt: "Logo 2",
   },
   {
     name: "Logo 3",
-    src: "https://tailwindcss.com/plus-assets/img/logos/158x48/tuple-logo-gray-900.svg",
+    src: "/images/logos/logo-3.svg",
     alt: "Logo 3",
   },
   {
     name: "Logo 4",
-    src: "https://tailwindcss.com/plus-assets/img/logos/158x48/savvycal-logo-gray-900.svg",
+    src: "/images/logos/logo-4.png",
     alt: "Logo 4",
   },
   {
     name: "Logo 5",
-    src: "https://tailwindcss.com/plus-assets/img/logos/158x48/statamic-logo-gray-900.svg",
+    src: "/images/logos/logo-5.svg",
     alt: "Logo 5",
   },
 ];

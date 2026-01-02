@@ -175,6 +175,14 @@ export default function Example() {
           </Popover>
           */}
 
+          {/* Direct link to Home */}
+          <Link
+            href="/"
+            className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
+          >
+            Home
+          </Link>
+
           {/* Direct link to Assets We Buy */}
           <Link
             href="/assets-we-buy"
@@ -287,6 +295,15 @@ export default function Example() {
                   </DisclosurePanel>
                 </Disclosure>
                 */}
+
+                {/* Direct link to Home (mobile) */}
+                <Link
+                  href="/"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
+                >
+                  Home
+                </Link>
 
                 {/* Direct link to Assets We Buy (mobile) */}
                 <Link

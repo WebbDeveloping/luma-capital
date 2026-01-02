@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SimpleHero from "@/components/opportunity/SimpleHero";
+import LogoCloud from "@/components/home/LogoCloud";
 import LandOpportunity from "@/components/opportunity/LandOpportunity";
 import BusinessOpportunity from "@/components/opportunity/BusinessOpportunity";
 import WhyInvestMatters from "@/components/opportunity/WhyInvestMatters";
@@ -20,6 +21,9 @@ export default function OpportunityPage() {
       <main className="isolate">
         {/* Hero Section */}
         <SimpleHero />
+
+        {/* LogoCloud Section */}
+        <LogoCloud />
 
         {/* Land Opportunity Section */}
         <LandOpportunity />

@@ -115,7 +115,7 @@ export default function HomeHero() {
                   className="mt-3 font-serif text-5xl font-semibold tracking-tight text-[#1b1308] sm:text-7xl"
                   variants={itemVariants}
                 >
-                  Invest and serve with purpose.
+                  Invest and Serve With Purpose.
                 </motion.h1>
 
                 <motion.p

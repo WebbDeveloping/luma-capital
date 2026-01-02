@@ -1,8 +1,13 @@
+"use client";
+
 import {
   BuildingOffice2Icon,
   MapIcon,
   WrenchScrewdriverIcon,
 } from "@heroicons/react/20/solid";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 const features = [
   {
@@ -29,31 +34,90 @@ const features = [
 ];
 
 export default function AssetsOverview() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.0, 0, 0.2, 1],
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.0, 0, 0.2, 1],
+      },
+    },
+  };
+
   return (
-    <section className="bg-[#f9f5ee] py-20 sm:py-24">
+    <section ref={ref} className="bg-[#f9f5ee] py-20 sm:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center">
-          <p className="text-sm font-semibold tracking-wide text-[#624315]">
+        <motion.div
+          className="mx-auto max-w-2xl text-center"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
+          <motion.p
+            className="text-sm font-semibold tracking-wide text-[#624315]"
+            variants={itemVariants}
+          >
             What we acquire
-          </p>
+          </motion.p>
 
-          <h2 className="mt-3 font-serif text-4xl font-semibold tracking-tight text-[#20140a] sm:text-5xl">
+          <motion.h2
+            className="mt-3 font-serif text-4xl font-semibold tracking-tight text-[#20140a] sm:text-5xl"
+            variants={itemVariants}
+          >
             Three core asset categories
-          </h2>
+          </motion.h2>
 
-          <p className="mt-6 text-lg leading-8 text-[#20140a]/70">
+          <motion.p
+            className="mt-6 text-lg leading-8 text-[#20140a]/70"
+            variants={itemVariants}
+          >
             TerraLuma Capital buys Private Businesses, Land, and Flex / Light
             Industrial Real Estate—offering straightforward, confidential
             conversations and tailored structures for owners ready to transact.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
-        <div className="mx-auto mt-14 max-w-2xl lg:mt-16 lg:max-w-none">
+        <motion.div
+          className="mx-auto mt-14 max-w-2xl lg:mt-16 lg:max-w-none"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+        >
           <dl className="grid grid-cols-1 gap-8 lg:grid-cols-3">
             {features.map((feature) => (
-              <div
+              <motion.div
                 key={feature.name}
                 className="rounded-2xl border border-[#e2d4c1] bg-white p-8 shadow-sm"
+                variants={cardVariants}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
               >
                 <dt className="flex items-center gap-x-3 text-base font-semibold text-[#20140a]">
                   <feature.icon
@@ -75,10 +139,10 @@ export default function AssetsOverview() {
                     </a>
                   </p>
                 </dd>
-              </div>
+              </motion.div>
             ))}
           </dl>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
