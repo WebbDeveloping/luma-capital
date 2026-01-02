@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useScrollDirection } from "@/hooks/useScrollDirection";
 import {
   Dialog,
   DialogPanel,
@@ -73,9 +74,17 @@ function TerraLumaLogo() {
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const scrollDirection = useScrollDirection({ threshold: 10 });
+
+  // Determine if nav should be hidden (only hide when scrolling down and mobile menu is closed)
+  const isHidden = scrollDirection === "down" && !mobileMenuOpen;
 
   return (
-    <header className="sticky top-0 z-50 bg-[#15100b] text-white dark:bg-tl-black">
+    <header
+      className={`sticky top-0 inset-x-0 z-50 bg-[#15100b] text-white dark:bg-tl-black transition-transform duration-300 ease-in-out ${
+        isHidden ? "-translate-y-full" : "translate-y-0"
+      }`}
+    >
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"

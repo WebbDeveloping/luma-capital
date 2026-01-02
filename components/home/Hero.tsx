@@ -136,7 +136,7 @@ export default function HomeHero() {
                     href="/contact"
                     className="rounded-md bg-[#624315] px-3.5 py-2.5 text-sm font-semibold text-[#FFE898] shadow-xs hover:bg-[#4f3511] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#624315]"
                   >
-                    Schedule a confidential call
+                    Schedule A Conversation
                   </a>
 
                   <a
