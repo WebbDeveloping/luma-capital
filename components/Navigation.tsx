@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -93,7 +93,11 @@ const resources = [
 const resourceCallsToAction = [
   { name: "Watch demo", href: "#", icon: PlayCircleIcon },
   { name: "Contact us", href: "/contact", icon: PhoneIcon },
-  { name: "View Assets we Buy", href: "/assets-we-buy", icon: RectangleGroupIcon },
+  {
+    name: "View Assets we Buy",
+    href: "/assets-we-buy",
+    icon: RectangleGroupIcon,
+  },
 ];
 
 function TerraLumaLogo() {
@@ -113,14 +117,36 @@ function TerraLumaLogo() {
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [resourcesOpen, setResourcesOpen] = useState(false);
-  const pathname = usePathname();
+  const [resourcesPopoverOpen, setResourcesPopoverOpen] = useState(false);
   const scrollDirection = useScrollDirection({ threshold: 10 });
+  const pathname = usePathname();
+  const popoverRef = useRef<HTMLDivElement>(null);
 
-  // Close Resources popover when route changes
+  // Close resources popover when route changes
   useEffect(() => {
-    setResourcesOpen(false);
+    setResourcesPopoverOpen(false);
   }, [pathname]);
+
+  // Handle click outside to close popover
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        resourcesPopoverOpen &&
+        popoverRef.current &&
+        !popoverRef.current.contains(event.target as Node)
+      ) {
+        setResourcesPopoverOpen(false);
+      }
+    }
+
+    if (resourcesPopoverOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [resourcesPopoverOpen]);
 
   // Determine if nav should be hidden (only hide when scrolling down and mobile menu is closed)
   const isHidden = scrollDirection === "down" && !mobileMenuOpen;
@@ -247,74 +273,79 @@ export default function Example() {
           </Link>
 
           {/* Resources Dropdown (desktop) */}
-          <Popover open={resourcesOpen} onClose={setResourcesOpen}>
-            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-white/80 hover:text-tl-gold">
-              Resources
-              <ChevronDownIcon
-                aria-hidden="true"
-                className="size-5 flex-none text-tl-gold"
-              />
-            </PopoverButton>
-
-            <PopoverPanel
-              transition
-              className="absolute inset-x-0 top-16 bg-[#fdf7ee] transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in dark:bg-tl-black"
+          <div ref={popoverRef}>
+            <Popover
+              open={resourcesPopoverOpen}
+              onChange={setResourcesPopoverOpen}
             >
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 top-1/2 bg-[#fdf7ee] shadow-lg ring-1 ring-black/5 dark:bg-tl-black dark:shadow-none dark:ring-white/15"
-              />
-              <div className="relative bg-[#fdf7ee] dark:bg-tl-black">
-                <div className="mx-auto grid max-w-7xl grid-cols-3 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
-                  {resources.map((item) => (
-                    <div
-                      key={item.name}
-                      className="group relative rounded-lg p-6 text-sm/6 hover:bg-[#f1e3d1] dark:hover:bg-white/5"
-                    >
-                      <div className="flex size-11 items-center justify-center rounded-lg bg-[#f4e7d6] group-hover:bg-[#fffaf2] dark:bg-[#22201a] dark:group-hover:bg-[#2c261c]">
-                        <item.icon
-                          aria-hidden="true"
-                          className="size-6 text-tl-brown dark:text-tl-gold"
-                        />
-                      </div>
-                      <Link
-                        href={item.href}
-                        onClick={() => setResourcesOpen(false)}
-                        className="mt-6 block font-semibold text-[#21140a] dark:text-white"
-                      >
-                        {item.name}
-                        <span className="absolute inset-0" />
-                      </Link>
-                      <p className="mt-1 text-[#5a4a36] dark:text-gray-300">
-                        {item.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
+              <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-white/80 hover:text-tl-gold">
+                Resources
+                <ChevronDownIcon
+                  aria-hidden="true"
+                  className="size-5 flex-none text-tl-gold"
+                />
+              </PopoverButton>
 
-                <div className="bg-[#f4e7d6] dark:bg-[#17130d]">
-                  <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <div className="grid grid-cols-3 divide-x divide-black/5 border-x border-black/5 dark:divide-white/10 dark:border-white/10">
-                      {resourceCallsToAction.map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          onClick={() => setResourcesOpen(false)}
-                          className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-[#21140a] hover:bg-[#e8d6c0] dark:text-white dark:hover:bg-[#201a11]"
-                        >
+              <PopoverPanel
+                transition
+                className="absolute inset-x-0 top-16 z-[60] bg-[#fdf7ee] transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in dark:bg-tl-black"
+              >
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 top-1/2 bg-[#fdf7ee] shadow-lg ring-1 ring-black/5 dark:bg-tl-black dark:shadow-none dark:ring-white/15"
+                />
+                <div className="relative bg-[#fdf7ee] dark:bg-tl-black">
+                  <div className="mx-auto grid max-w-7xl grid-cols-3 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
+                    {resources.map((item) => (
+                      <div
+                        key={item.name}
+                        className="group relative rounded-lg p-6 text-sm/6 hover:bg-[#f1e3d1] dark:hover:bg-white/5"
+                      >
+                        <div className="flex size-11 items-center justify-center rounded-lg bg-[#f4e7d6] group-hover:bg-[#fffaf2] dark:bg-[#22201a] dark:group-hover:bg-[#2c261c]">
                           <item.icon
                             aria-hidden="true"
-                            className="size-5 flex-none text-[#9a8566] dark:text-gray-400"
+                            className="size-6 text-tl-brown dark:text-tl-gold"
                           />
+                        </div>
+                        <Link
+                          href={item.href}
+                          onClick={() => setResourcesPopoverOpen(false)}
+                          className="mt-6 block font-semibold text-[#21140a] dark:text-white"
+                        >
                           {item.name}
+                          <span className="absolute inset-0" />
                         </Link>
-                      ))}
+                        <p className="mt-1 text-[#5a4a36] dark:text-gray-300">
+                          {item.description}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="bg-[#f4e7d6] dark:bg-[#17130d]">
+                    <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                      <div className="grid grid-cols-3 divide-x divide-black/5 border-x border-black/5 dark:divide-white/10 dark:border-white/10">
+                        {resourceCallsToAction.map((item) => (
+                          <Link
+                            key={item.name}
+                            href={item.href}
+                            onClick={() => setResourcesPopoverOpen(false)}
+                            className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-[#21140a] hover:bg-[#e8d6c0] dark:text-white dark:hover:bg-[#201a11]"
+                          >
+                            <item.icon
+                              aria-hidden="true"
+                              className="size-5 flex-none text-[#9a8566] dark:text-gray-400"
+                            />
+                            {item.name}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </PopoverPanel>
-          </Popover>
+              </PopoverPanel>
+            </Popover>
+          </div>
 
           <Link
             href="/opportunity"

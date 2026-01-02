@@ -8,12 +8,17 @@ import CTASection from "@/components/home/CtaSection";
 import FAQ from "@/components/home/FAQ";
 import InvestorCTA from "@/components/home/InvestorCTA";
 
+import type { Metadata } from "next";
+
 // app/page.tsx
-export const metadata = {
+export const metadata: Metadata = {
   title: "Investing in Rural Businesses & Land",
   description:
     "TerraLuma Capital supports rural business transitions, land stewardship, and sustainable growth across the Southeast. We help owners, operators, and communities thrive.",
   openGraph: {
+    title: "Investing in Rural Businesses & Land",
+    description:
+      "TerraLuma Capital supports rural business transitions, land stewardship, and sustainable growth across the Southeast. We help owners, operators, and communities thrive.",
     images: [
       {
         url: "/images/stock/1.png",

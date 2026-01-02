@@ -1,5 +1,25 @@
 import CTASection from "../../../components/home/CtaSection";
 
+export const metadata = {
+  title: "Investor Testimonials",
+  description:
+    "Hear from TerraLuma Capital investors who think long-term. Learn why accredited investors choose our stewardship-driven approach to rural business and land investments.",
+  openGraph: {
+    title: "Investor Testimonials",
+    description:
+      "Hear from TerraLuma Capital investors who think long-term. Learn why accredited investors choose our stewardship-driven approach to rural business and land investments.",
+    images: [
+      // TODO: Add appropriate OpenGraph image (1200x630px recommended)
+      // {
+      //   url: "/images/path/to/image.png",
+      //   width: 1200,
+      //   height: 630,
+      //   alt: "TerraLuma Capital investor testimonials and perspectives",
+      // },
+    ],
+  },
+};
+
 // app/investors/testimonials/page.tsx (or components/InvestorTestimonialsWireframe.tsx)
 export default function InvestorTestimonialsWireframe() {
   const testimonials = [
@@ -80,7 +100,7 @@ function InvestorTestimonialsBlock() {
     <div className="bg-[#f9f5ee] text-[#1b1308] font-serif">
       <section className="relative isolate overflow-hidden py-24 sm:py-32">
         {/* SVG grid background (same as your referenced section) */}
-        <svg
+        {/* <svg
           aria-hidden="true"
           className="absolute inset-0 -z-10 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-[#e2d4c1]"
         >
@@ -110,7 +130,7 @@ function InvestorTestimonialsBlock() {
             height="100%"
             strokeWidth="0"
           />
-        </svg>
+        </svg> */}
 
         {/* Gradient blob (same placement + clip-path) */}
         <div
@@ -133,7 +153,7 @@ function InvestorTestimonialsBlock() {
               Investor Perspectives
             </p>
             <h2 className="mt-3 text-4xl font-semibold tracking-tight text-[#20140a] sm:text-5xl">
-              Aligned capital, shared conviction
+              Aligned Capital, Shared Conviction
             </h2>
             <p className="mt-4 text-base leading-7 text-[#5a4a36]">
               Selected investor bios describing why TerraLuma’s long-term

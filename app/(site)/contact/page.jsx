@@ -1,5 +1,25 @@
 import { BuildingOffice2Icon, EnvelopeIcon } from "@heroicons/react/24/outline";
 
+export const metadata = {
+  title: "Contact Us",
+  description:
+    "Connect with TerraLuma Capital. Schedule a one-on-one conversation with our team to explore investment opportunities or learn about our approach to rural business and land investments.",
+  openGraph: {
+    title: "Contact Us",
+    description:
+      "Connect with TerraLuma Capital. Schedule a one-on-one conversation with our team to explore investment opportunities or learn about our approach to rural business and land investments.",
+    images: [
+      // TODO: Add appropriate OpenGraph image (1200x630px recommended)
+      // {
+      //   url: "/images/path/to/image.png",
+      //   width: 1200,
+      //   height: 630,
+      //   alt: "Contact TerraLuma Capital for investment opportunities",
+      // },
+    ],
+  },
+};
+
 export default function ContactPage() {
   return (
     <div className="relative isolate bg-[#f9f5ee]">

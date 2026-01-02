@@ -10,9 +10,23 @@ import MarketFactors from "@/components/opportunity/MarketFactors";
 import CtaSection from "@/components/home/CtaSection";
 
 export const metadata: Metadata = {
-  title: "Investment Opportunity | TerraLuma Capital",
+  title: "Investment Opportunity",
   description:
-    "Explore the demographic-driven opportunities in land ownership transition across high-growth Southeastern markets.",
+    "Explore demographic-driven opportunities in land ownership transition and rural business acquisition across high-growth Southeastern markets.",
+  openGraph: {
+    title: "Investment Opportunity",
+    description:
+      "Explore demographic-driven opportunities in land ownership transition and rural business acquisition across high-growth Southeastern markets.",
+    images: [
+      // TODO: Add appropriate OpenGraph image (1200x630px recommended)
+      // {
+      //   url: "/images/path/to/image.png",
+      //   width: 1200,
+      //   height: 630,
+      //   alt: "Investment opportunities in Southeastern land and rural businesses",
+      // },
+    ],
+  },
 };
 
 export default function OpportunityPage() {
