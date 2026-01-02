@@ -91,7 +91,7 @@ const resources = [
 ];
 
 const resourceCallsToAction = [
-  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
+  { name: "Watch Overview", href: "/watch", icon: PlayCircleIcon },
   { name: "Contact us", href: "/contact", icon: PhoneIcon },
   {
     name: "View Assets we Buy",

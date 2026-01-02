@@ -48,55 +48,46 @@ export default function ValidationSection() {
 
         {/* LOGO GRID */}
         <motion.div
-          className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10
-                     sm:max-w-xl sm:grid-cols-6 sm:gap-x-10
-                     lg:mx-0 lg:max-w-none lg:grid-cols-5"
+          className="mx-auto mt-10 grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-10
+                     sm:max-w-xl sm:grid-cols-4 sm:gap-x-10
+                     lg:mx-0 lg:max-w-none lg:grid-cols-4"
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
         >
           <motion.img
             alt="Logo 1"
-            src="/images/logos/logo-4.png"
+            src="/images/logos/business-insider.png"
             width={158}
             height={48}
-            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1 opacity-95"
+            className="max-h-12 w-full object-contain opacity-95"
             variants={itemVariants}
           />
 
           <motion.img
             alt="Logo 2"
-            src="/images/logos/logo-3.svg"
+            src="/images/logos/marketwatch.svg"
             width={158}
             height={48}
-            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1 opacity-95"
+            className="max-h-12 w-full object-contain opacity-95"
             variants={itemVariants}
           />
 
           <motion.img
             alt="Logo 3"
-            src="/images/logos/logo-2.svg"
+            src="/images/logos/logo-fox8.webp"
             width={158}
             height={48}
-            className="col-span-2 max-h-12 w-full object-contain lg:col-span-1 opacity-95"
+            className="max-h-12 w-full object-contain opacity-95"
             variants={itemVariants}
           />
 
           <motion.img
             alt="Logo 4"
-            src="/images/logos/logo-5.svg"
+            src="/images/logos/yahoo.png"
             width={158}
             height={48}
-            className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1 opacity-95"
-            variants={itemVariants}
-          />
-
-          <motion.img
-            alt="Logo 5"
-            src="/images/logos/logo-1.svg"
-            width={158}
-            height={48}
-            className="col-span-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1 opacity-95"
+            className="max-h-12 w-full object-contain opacity-95"
             variants={itemVariants}
           />
         </motion.div>
