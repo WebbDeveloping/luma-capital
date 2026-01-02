@@ -32,7 +32,7 @@ const articles = [
     datetime: "2025-12-04",
     category: { title: "Press Release", href: "#" },
     source: "Business Insider",
-    image: "/images/stock/1.png",
+    image: "/images/opportunity/land-opp.png",
   },
   {
     title:
@@ -44,7 +44,7 @@ const articles = [
     datetime: "2025-12-04",
     category: { title: "Press Release", href: "#" },
     source: "Business Insider",
-    image: "/images/stock/5.png",
+    image: "/images/opportunity/land-dev.png",
   },
   {
     title:
@@ -56,7 +56,7 @@ const articles = [
     datetime: "2025-12-04",
     category: { title: "Press Release", href: "#" },
     source: "MarketWatch",
-    image: "/images/stock/3.png",
+    image: "/images/opportunity/small-biz.png",
   },
   {
     title:
@@ -68,7 +68,7 @@ const articles = [
     datetime: "2025-12-04",
     category: { title: "Press Release", href: "#" },
     source: "Yahoo Finance",
-    image: "/images/stock/4.png",
+    image: "/images/opportunity/business-demand.png",
   },
 ];
 
