@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import {
   Dialog,
@@ -22,7 +23,15 @@ import {
   ChartBarSquareIcon,
   MapIcon,
   BuildingStorefrontIcon,
+  PlayCircleIcon,
+  PhoneIcon,
+  RectangleGroupIcon,
 } from "@heroicons/react/20/solid";
+import {
+  UserGroupIcon,
+  QuestionMarkCircleIcon,
+  DocumentTextIcon,
+} from "@heroicons/react/24/outline";
 
 // COMMENTED OUT: Dropdown data structures (kept for potential restoration)
 /*
@@ -57,6 +66,36 @@ const callsToAction = [
 ];
 */
 
+const resources = [
+  {
+    name: "Investor Testimonials",
+    description:
+      "Hear from our investors about their experience with TerraLuma Capital",
+    href: "/testimonials",
+    icon: UserGroupIcon,
+  },
+  {
+    name: "FAQs",
+    description:
+      "Find answers to commonly asked questions about our investment process",
+    href: "/faq",
+    icon: QuestionMarkCircleIcon,
+  },
+  {
+    name: "Articles",
+    description:
+      "Insights, market analysis, and educational content from our team",
+    href: "/articles",
+    icon: DocumentTextIcon,
+  },
+];
+
+const resourceCallsToAction = [
+  { name: "Watch demo", href: "#", icon: PlayCircleIcon },
+  { name: "Contact us", href: "/contact", icon: PhoneIcon },
+  { name: "View Assets we Buy", href: "/assets-we-buy", icon: RectangleGroupIcon },
+];
+
 function TerraLumaLogo() {
   return (
     <div className="flex items-center">
@@ -74,7 +113,14 @@ function TerraLumaLogo() {
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [resourcesOpen, setResourcesOpen] = useState(false);
+  const pathname = usePathname();
   const scrollDirection = useScrollDirection({ threshold: 10 });
+
+  // Close Resources popover when route changes
+  useEffect(() => {
+    setResourcesOpen(false);
+  }, [pathname]);
 
   // Determine if nav should be hidden (only hide when scrolling down and mobile menu is closed)
   const isHidden = scrollDirection === "down" && !mobileMenuOpen;
@@ -200,25 +246,81 @@ export default function Example() {
             Assets We Buy
           </Link>
 
-          <Link
-            href="/testimonials"
-            className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
-          >
-            Investor Testimonials
-          </Link>
+          {/* Resources Dropdown (desktop) */}
+          <Popover open={resourcesOpen} onClose={setResourcesOpen}>
+            <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-white/80 hover:text-tl-gold">
+              Resources
+              <ChevronDownIcon
+                aria-hidden="true"
+                className="size-5 flex-none text-tl-gold"
+              />
+            </PopoverButton>
+
+            <PopoverPanel
+              transition
+              className="absolute inset-x-0 top-16 bg-[#fdf7ee] transition data-closed:-translate-y-1 data-closed:opacity-0 data-enter:duration-200 data-enter:ease-out data-leave:duration-150 data-leave:ease-in dark:bg-tl-black"
+            >
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 top-1/2 bg-[#fdf7ee] shadow-lg ring-1 ring-black/5 dark:bg-tl-black dark:shadow-none dark:ring-white/15"
+              />
+              <div className="relative bg-[#fdf7ee] dark:bg-tl-black">
+                <div className="mx-auto grid max-w-7xl grid-cols-3 gap-x-4 px-6 py-10 lg:px-8 xl:gap-x-8">
+                  {resources.map((item) => (
+                    <div
+                      key={item.name}
+                      className="group relative rounded-lg p-6 text-sm/6 hover:bg-[#f1e3d1] dark:hover:bg-white/5"
+                    >
+                      <div className="flex size-11 items-center justify-center rounded-lg bg-[#f4e7d6] group-hover:bg-[#fffaf2] dark:bg-[#22201a] dark:group-hover:bg-[#2c261c]">
+                        <item.icon
+                          aria-hidden="true"
+                          className="size-6 text-tl-brown dark:text-tl-gold"
+                        />
+                      </div>
+                      <Link
+                        href={item.href}
+                        onClick={() => setResourcesOpen(false)}
+                        className="mt-6 block font-semibold text-[#21140a] dark:text-white"
+                      >
+                        {item.name}
+                        <span className="absolute inset-0" />
+                      </Link>
+                      <p className="mt-1 text-[#5a4a36] dark:text-gray-300">
+                        {item.description}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="bg-[#f4e7d6] dark:bg-[#17130d]">
+                  <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                    <div className="grid grid-cols-3 divide-x divide-black/5 border-x border-black/5 dark:divide-white/10 dark:border-white/10">
+                      {resourceCallsToAction.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          onClick={() => setResourcesOpen(false)}
+                          className="flex items-center justify-center gap-x-2.5 p-3 text-sm/6 font-semibold text-[#21140a] hover:bg-[#e8d6c0] dark:text-white dark:hover:bg-[#201a11]"
+                        >
+                          <item.icon
+                            aria-hidden="true"
+                            className="size-5 flex-none text-[#9a8566] dark:text-gray-400"
+                          />
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </PopoverPanel>
+          </Popover>
 
           <Link
             href="/opportunity"
             className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
           >
             Opportunity
-          </Link>
-
-          <Link
-            href="/faq"
-            className="text-sm/6 font-semibold text-white/80 hover:text-tl-gold"
-          >
-            FAQ&apos;s
           </Link>
         </PopoverGroup>
 
@@ -323,14 +425,42 @@ export default function Example() {
                   Assets We Buy
                 </Link>
 
-                {/* ✅ EXACT DESKTOP LINKS + ORDER */}
-                <Link
-                  href="/testimonials"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
-                >
-                  Investor Testimonials
-                </Link>
+                {/* Resources (mobile dropdown) */}
+                <Disclosure as="div" className="-mx-3">
+                  <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pr-3.5 pl-3 text-base/7 font-semibold text-white hover:bg-white/5">
+                    Resources
+                    <ChevronDownIcon
+                      aria-hidden="true"
+                      className="size-5 flex-none transition group-data-open:rotate-180"
+                    />
+                  </DisclosureButton>
+
+                  <DisclosurePanel className="mt-2 space-y-1">
+                    {resources.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white/90 hover:bg-white/5"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+
+                    <div className="my-2 h-px bg-white/10" />
+
+                    {resourceCallsToAction.map((item) => (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="block rounded-lg py-2 pr-3 pl-6 text-sm/7 font-semibold text-white hover:bg-white/5"
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                  </DisclosurePanel>
+                </Disclosure>
 
                 <Link
                   href="/opportunity"
@@ -338,14 +468,6 @@ export default function Example() {
                   className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
                 >
                   Opportunity
-                </Link>
-
-                <Link
-                  href="/faq"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-white hover:bg-white/5"
-                >
-                  FAQ&apos;s
                 </Link>
               </div>
 
