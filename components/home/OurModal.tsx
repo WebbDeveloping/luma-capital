@@ -60,7 +60,10 @@ export default function OurModal() {
     },
   };
   return (
-    <section ref={ref} className="relative isolate overflow-hidden bg-[#f9f5ee] py-24 sm:py-32">
+    <section
+      ref={ref}
+      className="relative isolate overflow-hidden bg-[#f9f5ee] py-24 sm:py-32"
+    >
       {/* Warm motif blob */}
       <div
         aria-hidden="true"
@@ -233,20 +236,6 @@ export default function OurModal() {
               speculative assumptions. Our goal is to own assets we understand,
               improve what we control, and hold through cycles. Durability comes
               first.
-            </motion.p>
-
-            <motion.h3
-              className="mt-16 text-2xl font-bold tracking-tight text-[#1b1308]"
-              variants={itemVariants}
-            >
-              A model designed to endure
-            </motion.h3>
-
-            <motion.p className="mt-6" variants={itemVariants}>
-              TerraLuma invests its own capital alongside partners, ensuring
-              incentives stay aligned. We deploy deliberately, focus on
-              fundamentals, and prioritize continuity — for owners, operators,
-              and communities connected to the assets we steward.
             </motion.p>
           </motion.div>
         </div>
