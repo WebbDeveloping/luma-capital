@@ -21,7 +21,7 @@ export const metadata: Metadata = {
       "TerraLuma Capital supports rural business transitions, land stewardship, and sustainable growth across the Southeast. We help owners, operators, and communities thrive.",
     images: [
       {
-        url: "/images/stock/1.png",
+        url: "/images/metadata/home-terraluma-capital.png",
         width: 1200,
         height: 630,
         alt: "Rural business and land investment",
