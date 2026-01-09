@@ -130,9 +130,9 @@ export default function WhyUs() {
             </a>
           </motion.div>
 
-          {/* video band (standalone, spaced) */}
+          {/* video band (standalone, spaced) - hidden on mobile */}
           <motion.div
-            className="mt-16 sm:mt-20 lg:mt-24"
+            className="hidden md:block md:mt-16 lg:mt-24"
             variants={videoVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}

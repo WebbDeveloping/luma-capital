@@ -43,7 +43,7 @@ export default function HomeHero() {
       <main>
         <div className="relative isolate overflow-hidden pt-14">
           {/* Background pattern (OLD STYLE) */}
-          <svg
+          {/* <svg
             aria-hidden="true"
             className="absolute inset-0 -z-10 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-[#e2d4c1]"
           >
@@ -73,7 +73,7 @@ export default function HomeHero() {
               height="100%"
               strokeWidth={0}
             />
-          </svg>
+          </svg> */}
 
           {/* Gradient blob (OLD STYLE, but TerraLuma colors) */}
           <div
@@ -156,9 +156,9 @@ export default function HomeHero() {
                 </motion.p>
               </motion.div>
 
-              {/* Image collage (UNCHANGED from your current version) */}
+              {/* Image collage (hidden on mobile, shown on desktop) */}
               <motion.div
-                className="mt-14 flex justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 lg:mt-0 lg:pl-0"
+                className="mt-14 hidden justify-end gap-8 sm:-mt-44 sm:justify-start sm:pl-20 md:flex lg:mt-0 lg:pl-0"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -221,6 +221,36 @@ export default function HomeHero() {
                     />
                     <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-black/10 ring-inset" />
                   </motion.div>
+                </motion.div>
+              </motion.div>
+
+              {/* Video section (shown only on mobile) */}
+              <motion.div
+                className="mt-14 block md:hidden"
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <motion.div
+                  variants={imageVariants}
+                  className="relative rounded-3xl ring-1 ring-inset ring-black/10 shadow-2xl"
+                >
+                  <div className="overflow-hidden rounded-3xl bg-[#1b1308]">
+                    <div className="aspect-[16/9] w-full">
+                      <iframe
+                        className="h-full w-full"
+                        src="https://www.youtube.com/embed/20v7FD_x63U?controls=1&modestbranding=1&rel=0"
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
+                  <div
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10"
+                  />
                 </motion.div>
               </motion.div>
             </div>

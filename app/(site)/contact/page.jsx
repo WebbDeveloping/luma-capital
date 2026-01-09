@@ -27,7 +27,7 @@ export default function ContactPage() {
         <div className="relative px-6 pt-24 pb-20 sm:pt-32 lg:static lg:px-8 lg:py-48">
           <div className="mx-auto max-w-xl lg:mx-0 lg:max-w-lg">
             <div className="absolute inset-y-0 left-0 -z-10 w-full overflow-hidden bg-[#f1e6d6] ring-1 ring-tl-brown/10 lg:w-1/2">
-              <svg
+              {/* <svg
                 aria-hidden="true"
                 className="absolute inset-0 size-full mask-[radial-gradient(100%_100%_at_top_right,white,transparent)] stroke-tl-brown/20"
               >
@@ -62,7 +62,7 @@ export default function ContactPage() {
                   height="100%"
                   strokeWidth={0}
                 />
-              </svg>
+              </svg> */}
               <div
                 aria-hidden="true"
                 className="absolute top-[calc(100%-13rem)] -left-56 hidden transform-gpu blur-3xl lg:top-[calc(50%-7rem)] lg:left-[max(-14rem,calc(100%-59rem))]"
@@ -96,7 +96,8 @@ export default function ContactPage() {
                     className="h-7 w-6 text-tl-brown/60"
                   />
                 </dt>
-                <dd>Miami, United States</dd>
+                <dd>5030 SR-58 N Chattanooga, TN</dd>
+                <dd>37416 United States</dd>
               </div>
               <div className="flex gap-x-4">
                 <dt className="flex-none">
